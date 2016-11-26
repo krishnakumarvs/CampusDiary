@@ -1,0 +1,2 @@
+# CampusDiary
+Project for campus
