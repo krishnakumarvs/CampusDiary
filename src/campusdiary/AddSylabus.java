@@ -82,22 +82,22 @@ public class AddSylabus extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setText(" ADD SYLABUS");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Revision Code       :");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Branch                 :");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14));
-        jLabel4.setText("Semestar              :");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setText("Semester              :");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Subject  Code       :");
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Subject Name        :");
 
         branch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "computer science", "electronics", "architecture", "mechanical", "chemical" }));
@@ -109,17 +109,22 @@ public class AddSylabus extends javax.swing.JFrame {
                 subItemStateChanged(evt);
             }
         });
+        sub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Module 1              :");
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Module 3              :");
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Module 2              :");
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Module 4              :");
 
         jButton1.setText("SUBMIT");
@@ -133,10 +138,6 @@ public class AddSylabus extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(112, 112, 112)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,9 +173,14 @@ public class AddSylabus extends javax.swing.JFrame {
                             .addComponent(revcode, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))))
                 .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(jButton1)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,6 +274,10 @@ private void subItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:even
     }
     // TODO add your handling code here:
 }//GEN-LAST:event_subItemStateChanged
+
+    private void subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subActionPerformed
 
     /**
      * @param args the command line arguments
