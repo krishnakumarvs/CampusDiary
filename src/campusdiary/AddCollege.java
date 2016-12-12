@@ -28,14 +28,7 @@ public class AddCollege extends javax.swing.JFrame {
     }
     
     private void loadBranches(){
-        allBranches.addItem("com[puter science");
-        allBranches.addItem("architecture");
-        allBranches.addItem("electronics");
-        allBranches.addItem("dcp");
-        allBranches.addItem("chemical");
-        allBranches.addItem("mechanical");
-        allBranches.addItem("civil");
-        allBranches.addItem("cs");
+       
     }
 
     /** This method is called from within the constructor to
