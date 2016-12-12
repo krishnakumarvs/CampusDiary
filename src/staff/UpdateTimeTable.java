@@ -190,7 +190,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         String ti = time.getText();
          String sub= subject.getText();
         Dbcon d = new Dbcon();
-        String sql = "insert into tbl_add_timetable(branch,semester,date,time,subject)values('" +br+ "','" + sem + "','" + da + "','" + ti + "','" + sub + "');";
+        String sql = "insert into tbl_series_timetable(branch,semester,date,time,subject)values('" +br+ "','" + sem + "','" + da + "','" + ti + "','" + sub + "');";
         System.out.println(sql);
         
         int ins = d.insert(sql);
