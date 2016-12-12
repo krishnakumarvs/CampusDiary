@@ -26,6 +26,7 @@ public class UpdateTimetable1 extends javax.swing.JFrame {
     /** Creates new form UpdateTimetable1 */
     public UpdateTimetable1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
