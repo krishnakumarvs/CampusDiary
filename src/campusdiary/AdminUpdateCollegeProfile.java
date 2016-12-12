@@ -10,6 +10,8 @@
  */
 package campusdiary;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
