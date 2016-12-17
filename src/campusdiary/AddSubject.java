@@ -22,7 +22,13 @@ public class AddSubject extends javax.swing.JFrame {
     /** Creates new form AddSubject */
     public AddSubject() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
+
+     private void clearText(){
+       subcode.setText("");
+        subject.setText("");
+        }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -117,7 +123,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                JOptionPane.showMessageDialog(this, "try again");
            }
     }
-    // TODO add your handling code here:
+clearText();    // TODO add your handling code here:
 }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
