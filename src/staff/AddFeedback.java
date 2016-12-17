@@ -179,7 +179,7 @@ public class AddFeedback extends javax.swing.JFrame {
         String temp = c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH);
         Dbcon d = new Dbcon();
         int k=audience.getSelectedIndex();
-        if(title.equals("")||feedback.equals("")||owner.equals("")||k==0)
+        if(tt.equals("")||ct.equals("")||ow.equals("")||k==0)
         {
             JOptionPane.showMessageDialog(this,"Please Enter The Values");
         }
