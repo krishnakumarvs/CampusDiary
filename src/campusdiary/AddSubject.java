@@ -109,7 +109,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }else{
     
     Dbcon db = new Dbcon();
-     String sql = "insert into tbl_subject(subject_name,subject_code)values('"+name+ "','"+code+"');";
+     String sql = "insert into tbl_subjects(subject_name,subject_code)values('"+name+ "','"+code+"');";
            int ins= db.insert(sql);
            if(ins>0){
                JOptionPane.showMessageDialog(this, "successfully inserted");
