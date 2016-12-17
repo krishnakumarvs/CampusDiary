@@ -11,6 +11,8 @@
 package campusdiary;
 
 import db.Dbcon;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,7 +75,7 @@ public class AddNotification extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Audience");
 
-        audience.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "all", "staff", "student" }));
+        audience.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--select--", "student only", "staff only", "all" }));
         audience.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -176,14 +178,21 @@ private void audienceInputMethodTextChanged(java.awt.event.InputMethodEvent evt)
 }//GEN-LAST:event_audienceInputMethodTextChanged
 
 private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
- String titlename = title.getText();
+ String tt = title.getText();
     String note= description.getText();
     String pry =audience.getSelectedItem().toString();
-    if(titlename.equals("")||note.equals("")||pry.equals("")){
+    String ow= owner.getText();
+    Date date= new Date();
+    long milliiii =  System.currentTimeMillis();
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(milliiii);
+        String temp = c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH);
+    int i=audience.getSelectedIndex();
+    if(tt.equals("")||note.equals("")||ow.equals("")||i==0){
         JOptionPane.showMessageDialog(this, "enter the values");
     }else{
     Dbcon db = new Dbcon();
-     String sql = "insert into tbl_notifications(owner,audience,title,date,description)values('"+titlename+"','"+note+"','"+pry+"');";
+     String sql = "insert into tbl_notifications(owner,audience,title,date,description,college_id)values('"+ow+"','"+pry+"','"+tt+"','"+temp+"','"+note+"','101');";
            int ins= db.insert(sql);
            if(ins>0){
                JOptionPane.showMessageDialog(this, "successfully inserted");

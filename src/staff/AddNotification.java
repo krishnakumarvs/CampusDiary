@@ -170,7 +170,7 @@ public class AddNotification extends javax.swing.JFrame {
         String des=description.getText();
          Dbcon d = new Dbcon();
          int i=audience.getSelectedIndex();
-         if(title.equals("")||owner.equals("")||i==0||description.equals("")){
+         if(tit.equals("")||ow.equals("")||i==0||des.equals("")){
              JOptionPane.showMessageDialog(this,"Please Enter The Values");
          }
          else
