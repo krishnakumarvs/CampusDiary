@@ -23,6 +23,12 @@ public class AddFeedback extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+     private void clearText(){
+        title.setText("");
+        owner.setText("");
+        feedback.setText("");
+       
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,16 +178,25 @@ public class AddFeedback extends javax.swing.JFrame {
         c.setTimeInMillis(milliiii);
         String temp = c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH);
         Dbcon d = new Dbcon();
+        int k=audience.getSelectedIndex();
+        if(title.equals("")||feedback.equals("")||owner.equals("")||k==0)
+        {
+            JOptionPane.showMessageDialog(this,"Please Enter The Values");
+        }
+        else
+        {
         String sql = "insert into tbl_feedback(owner,audience,title,date,description,college_id)values('"+ow+"','"+au+"','"+tt+"','"+temp+"','"+ct+"','101');";
         System.out.println(sql);
         
         int ins = d.insert(sql);
         if(ins>0) {
             JOptionPane.showMessageDialog(rootPane, "Success"); 
+            
         } else {
             JOptionPane.showMessageDialog(rootPane, "Could not insert");
         }
-
+          clearText();
+        }
     }//GEN-LAST:event_submitActionPerformed
 
     private void titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleActionPerformed
