@@ -110,7 +110,7 @@ public class StaffLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "enter the user name & password");
         } else {
             Dbcon d = new Dbcon();
-            String sql = "select * from tbl_staff_login where username='" + name + "';";
+            String sql = "select * from tbl_login where username='" + name + "';";
             System.out.println(sql);
             ResultSet rs = d.select(sql);
             try {
