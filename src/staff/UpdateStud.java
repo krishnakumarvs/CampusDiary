@@ -101,7 +101,7 @@ public class UpdateStud extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         String ad = admno.getText();
-        String sql = "select * from tbl_add_student where admissionno='" + ad + "';";
+        String sql = "select * from tbl_add_student where id ='" + ad + "';";
         Dbcon d = new Dbcon();
         ResultSet rs = d.select(sql);
         try {
