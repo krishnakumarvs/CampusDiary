@@ -75,20 +75,20 @@ public class AddTimeTable extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         submit = new javax.swing.JButton();
-        branch = new javax.swing.JComboBox<>();
-        semester = new javax.swing.JComboBox<>();
-        date = new org.jdesktop.swingx.JXDatePicker();
-        subjectCode = new javax.swing.JComboBox<>();
+        branch = new javax.swing.JComboBox<String>();
+        semester = new javax.swing.JComboBox<String>();
+        subjectCode = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         subjectName = new javax.swing.JTextField();
         hour = new javax.swing.JSpinner();
         minute = new javax.swing.JSpinner();
         meridian = new javax.swing.JButton();
+        date = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14));
         jLabel1.setText("Series Time Table");
 
         jLabel2.setText("Branch");
@@ -115,7 +115,7 @@ public class AddTimeTable extends javax.swing.JFrame {
             }
         });
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        semester.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
 
         subjectCode.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -169,10 +169,10 @@ public class AddTimeTable extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(branch, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(semester, 0, 190, Short.MAX_VALUE)
-                                            .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addGap(60, 60, 60)
-                                                .addComponent(meridian))))
+                                                .addComponent(meridian))
+                                            .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(62, 62, 62)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +229,7 @@ public class AddTimeTable extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back)
                     .addComponent(submit))

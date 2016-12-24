@@ -10,7 +10,6 @@
  */
 package campusdiary;
 
-import static campusdiary.NewClass.generatePassword;
 import db.Dbcon;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
