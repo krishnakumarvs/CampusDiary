@@ -23,30 +23,31 @@ public class UpdateTimeTable extends javax.swing.JFrame {
      */
     public UpdateTimeTable() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
-    public UpdateTimeTable(String branches,String sem) {
+
+    public UpdateTimeTable(String branches, String sem, String subcode) {
         initComponents();
-         this.setLocationRelativeTo(null);
-         System.out.println("branches" + branches);
-         System.out.println("semester"+sem);
+        this.setLocationRelativeTo(null);
+        System.out.println("branches" + branches);
+        System.out.println("semester" + sem);
+        System.out.println("subject_code"+ subcode);
         Dbcon db = new Dbcon();
-        ResultSet rs = db.select("select*from tbl_add_timetable where branch='" +branches+"' AND sem='"+sem+"'");
+        ResultSet rs = db.select("select * from tbl_series_time_table where branch = '"+branches+"' AND semester = '"+sem+"' AND subject_code = '"+subcode+"'");
         try {
             if (rs.next()) {
-                branch.setSelectedItem(rs.getString("branch"));
-                semester.setSelectedItem(rs.getString("semester"));
+                branch.setText(rs.getString("branch"));
+                semester.setText(rs.getString("semester"));
+                subc.setText(rs.getString("subject_code"));
+                subn.setText(rs.getString("subject_name"));
                 date.setText(rs.getString("date"));
                 time.setText(rs.getString("time"));
-                subject.setText(rs.getString("subject"));
 
-                
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,15 +62,17 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        date = new javax.swing.JTextField();
+        subc = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        time = new javax.swing.JTextField();
+        subn = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        subject = new javax.swing.JTextField();
+        time = new javax.swing.JTextField();
         back = new javax.swing.JButton();
         submit = new javax.swing.JButton();
-        branch = new javax.swing.JComboBox<>();
-        semester = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        date = new javax.swing.JTextField();
+        branch = new javax.swing.JTextField();
+        semester = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +87,13 @@ public class UpdateTimeTable extends javax.swing.JFrame {
 
         jLabel5.setText("Time");
 
-        jLabel6.setText("Subject");
+        jLabel6.setText("Subject Code");
+
+        time.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timeActionPerformed(evt);
+            }
+        });
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -100,78 +109,78 @@ public class UpdateTimeTable extends javax.swing.JFrame {
             }
         });
 
-        branch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Computer Enginering", "Electronics Engineering" }));
-
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semester 1", "Semester 2", "Semester 3" }));
+        jLabel7.setText("Subject Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(date)
-                            .addComponent(time)
-                            .addComponent(subject)
-                            .addComponent(semester, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(branch, 0, 190, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(subc, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                    .addComponent(subn)
+                                    .addComponent(branch)
+                                    .addComponent(semester)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(73, 73, 73)
+                                        .addComponent(back))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(submit)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(date)
+                                        .addGap(2, 2, 2))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(back)
-                        .addGap(32, 32, 32)
-                        .addComponent(submit)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(semester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(semester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(subject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back)
                     .addComponent(submit))
@@ -183,32 +192,37 @@ public class UpdateTimeTable extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
-        
-        String br = branch.getSelectedItem().toString();
-        String sem = semester.getSelectedItem().toString();
+
+        String br = branch.getText();
+        String sem = semester.getText();
+        String subcode = subc.getText();
+        String subname = subn.getText();
         String da = date.getText();
         String ti = time.getText();
-         String sub= subject.getText();
         Dbcon d = new Dbcon();
-        String sql = "insert into tbl_series_timetable(branch,semester,date,time,subject)values('" +br+ "','" + sem + "','" + da + "','" + ti + "','" + sub + "');";
+        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time)values('" + br + "','" + sem + "','" + subcode + "','" + subname + "','" + da + "','" + ti + "');";
         System.out.println(sql);
-        
+
         int ins = d.insert(sql);
-        if(ins>0) {
-            JOptionPane.showMessageDialog(rootPane, "Success"); 
+        if (ins > 0) {
+            JOptionPane.showMessageDialog(rootPane, "Success");
         } else {
             JOptionPane.showMessageDialog(rootPane, "Could not insert");
         }
 
         // TODO add your handling code here:
-                   
+
     }//GEN-LAST:event_submitActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-                StaffHomePage hp = new StaffHomePage();
-                        hp.setVisible(true);
-                        this.dispose();        // TODO add your handling code here:
+        StaffHomePage hp = new StaffHomePage();
+        hp.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_backActionPerformed
+
+    private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_timeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,7 +262,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
-    private javax.swing.JComboBox<String> branch;
+    private javax.swing.JTextField branch;
     private javax.swing.JTextField date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -256,9 +270,11 @@ public class UpdateTimeTable extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JComboBox<String> semester;
-    private javax.swing.JTextField subject;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField semester;
+    private javax.swing.JTextField subc;
     private javax.swing.JButton submit;
+    private javax.swing.JTextField subn;
     private javax.swing.JTextField time;
     // End of variables declaration//GEN-END:variables
 }

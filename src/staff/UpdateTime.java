@@ -7,6 +7,9 @@ package staff;
 
 import db.Dbcon;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,8 +24,36 @@ public class UpdateTime extends javax.swing.JFrame {
     public UpdateTime() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        loadbranch();
+        loadsubject();
     }
+    private void loadbranch() {
+        try {
+            String sql = "select * from tbl_branches;";
+            Dbcon db = new Dbcon();
+            ResultSet rs = db.select(sql);
+            while (rs.next()) {
+                String br = rs.getString(2);
+                branch.addItem(br);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddTimeTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void loadsubject(){
+        String sql = "select subject_code  from tbl_subjects;";
+        Dbcon db = new Dbcon();
+        ResultSet rs = db.select(sql);
+        try {
+            while(rs.next()){
+                String su = rs.getString(1);         
+                subc.addItem(su);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateTime.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,6 +70,8 @@ public class UpdateTime extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         sem = new javax.swing.JComboBox<>();
         go = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        subc = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +80,6 @@ public class UpdateTime extends javax.swing.JFrame {
 
         jLabel2.setText("Branch");
 
-        branch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<--select-->", "Computer Engineering", "electronics", "chemical", "electrical", "civil" }));
         branch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 branchActionPerformed(evt);
@@ -65,6 +97,8 @@ public class UpdateTime extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Subject Code");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,13 +107,15 @@ public class UpdateTime extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(branch, 0, 156, Short.MAX_VALUE)
+                            .addComponent(sem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(subc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -101,7 +137,11 @@ public class UpdateTime extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(subc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(go)
                 .addGap(34, 34, 34))
         );
@@ -113,12 +153,13 @@ public class UpdateTime extends javax.swing.JFrame {
         // TODO add your handling code here:h
         String br = branch.getSelectedItem().toString();
         String se = sem.getSelectedItem().toString();
-        String sql = "select * from tbl_add_timetable where branch='" + br + "'AND semester='"+se+"';";
+        String su = subc.getSelectedItem().toString();
+        String sql = "select * from tbl_series_time_table where branch='" + br + "'AND semester='" + se + "';";
         Dbcon d = new Dbcon();
         ResultSet rs = d.select(sql);
         try {
             if (rs.next()) {
-                UpdateTimeTable ut = new UpdateTimeTable(br,se);
+                UpdateTimeTable ut = new UpdateTimeTable(br, se, su);
                 ut.setVisible(true);
                 this.dispose();
             } else {
@@ -175,6 +216,8 @@ public class UpdateTime extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JComboBox<String> sem;
+    private javax.swing.JComboBox<String> subc;
     // End of variables declaration//GEN-END:variables
 }
