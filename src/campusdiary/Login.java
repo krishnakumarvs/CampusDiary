@@ -126,7 +126,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     } else {
         try {
             Dbcon db = new Dbcon();
-            String sql = "select * from tbl_admin_login where username='" + username + "';";
+            String sql = "select * from tbl_login where username='" + username + "' AND password='"+pass+"';";
             ResultSet rs = db.select(sql);
 
             if (rs.next()) {
