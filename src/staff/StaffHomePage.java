@@ -79,6 +79,11 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
 
         jButton2.setText("Next");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Add");
 
@@ -240,6 +245,10 @@ public class StaffHomePage extends javax.swing.JFrame {
         at.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_updateTimeTableActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
