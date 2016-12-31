@@ -91,15 +91,10 @@
                   <Component id="sem" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="date1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="date1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -156,13 +151,14 @@
     <Component class="javax.swing.JComboBox" name="sem">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="sem1"/>
-            <StringItem index="1" value="sem2"/>
-            <StringItem index="2" value="sem3"/>
-            <StringItem index="3" value="sem4"/>
-            <StringItem index="4" value="sem5"/>
-            <StringItem index="5" value="sem6"/>
+          <StringArray count="7">
+            <StringItem index="0" value="--select--"/>
+            <StringItem index="1" value="semester 1"/>
+            <StringItem index="2" value="semester 2"/>
+            <StringItem index="3" value="semester 3"/>
+            <StringItem index="4" value="semester 4"/>
+            <StringItem index="5" value="semester 5"/>
+            <StringItem index="6" value="semester 6"/>
           </StringArray>
         </Property>
       </Properties>
@@ -249,6 +245,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="subname">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="date1">
       <Events>

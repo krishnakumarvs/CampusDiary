@@ -111,7 +111,7 @@ public class TimeTable extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Semester");
 
-        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sem1", "sem2", "sem3", "sem4", "sem5", "sem6" }));
+        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--select--", "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
         sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 semActionPerformed(evt);
@@ -160,6 +160,8 @@ public class TimeTable extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Subject Name");
+
+        subname.setEditable(false);
 
         date1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,13 +241,10 @@ public class TimeTable extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -290,10 +289,11 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     String time = time1 + ":" + time2 + ":" + amm;
     String subcode = sub.getSelectedItem().toString();
     String subname1 = subname.getText();
-
+    int t=sem.getSelectedIndex();
     if (rev.equals("")
             || date1.getDate() == null
-            || time.equals("")) {
+            || time.equals("")
+            ||t==0) {
         JOptionPane.showMessageDialog(this, "enter the values");
     } else {
         Dbcon db = new Dbcon();
