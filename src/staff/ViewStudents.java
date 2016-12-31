@@ -95,7 +95,6 @@ public class ViewStudents extends javax.swing.JFrame {
         viewStudent = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
-        back1 = new javax.swing.JButton();
         back2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,9 +135,11 @@ public class ViewStudents extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(viewStudent);
-        viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
-        viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
-        viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
+        if (viewStudent.getColumnModel().getColumnCount() > 0) {
+            viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
+            viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
+            viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setText("VIEW STUDENT");
@@ -147,13 +148,6 @@ public class ViewStudents extends javax.swing.JFrame {
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
-            }
-        });
-
-        back1.setText("Back");
-        back1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back1ActionPerformed(evt);
             }
         });
 
@@ -189,11 +183,6 @@ public class ViewStudents extends javax.swing.JFrame {
                     .addGap(390, 390, 390)
                     .addComponent(back)
                     .addContainerGap(390, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(390, 390, 390)
-                    .addComponent(back1)
-                    .addContainerGap(390, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,22 +203,29 @@ public class ViewStudents extends javax.swing.JFrame {
                     .addGap(175, 175, 175)
                     .addComponent(back)
                     .addContainerGap(175, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(175, 175, 175)
-                    .addComponent(back1)
-                    .addContainerGap(175, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 private void updatebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebuttonActionPerformed
-// TODO add your handling code here:
+    UpdateStudent student=new UpdateStudent(id);
+    student.setVisible(true);
+    this.dispose();
 }//GEN-LAST:event_updatebuttonActionPerformed
 
 private void deletebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebuttonActionPerformed
-// TODO add your handling code here:
+Dbcon db=new Dbcon();
+String sql="delete from tbl_student where id='"+id+"'";
+int r=db.insert(sql);
+if(r>0){
+     JOptionPane.showMessageDialog(this,"successfully deleted");
+     ViewStudents student=new ViewStudents();
+     student.setVisible(true);
+     this.dispose();
+}else{
+     JOptionPane.showMessageDialog(this,"detetion failed");
+}
 }//GEN-LAST:event_deletebuttonActionPerformed
 
 private void viewStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewStudentMouseClicked
@@ -254,12 +250,6 @@ private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
         hp.setVisible(true);
         this.dispose();        // TODO add your handling code here:
 }//GEN-LAST:event_backActionPerformed
-
-private void back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back1ActionPerformed
-        StaffHomePage hp = new StaffHomePage();
-        hp.setVisible(true);
-        this.dispose();        // TODO add your handling code here:
-}//GEN-LAST:event_back1ActionPerformed
 
 private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back2ActionPerformed
         StaffHomePage hp = new StaffHomePage();
@@ -304,7 +294,6 @@ private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
-    private javax.swing.JButton back1;
     private javax.swing.JButton back2;
     private javax.swing.JButton deletebutton;
     private javax.swing.JLabel jLabel1;

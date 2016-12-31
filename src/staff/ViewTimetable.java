@@ -109,11 +109,11 @@ private void viewtimetable(){
             }
         });
         jScrollPane1.setViewportView(viewTimeTable);
-        viewTimeTable.getColumnModel().getColumn(0).setMinWidth(0);
-        viewTimeTable.getColumnModel().getColumn(0).setPreferredWidth(0);
-        viewTimeTable.getColumnModel().getColumn(0).setMaxWidth(0);
+        if (viewTimeTable.getColumnModel().getColumnCount() > 0) {
+            viewTimeTable.getColumnModel().getColumn(0).setPreferredWidth(0);
+        }
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setText(" TIME TABLE");
 
         updateButton.setText("Update");
@@ -154,21 +154,21 @@ private void viewtimetable(){
                         .addGap(95, 95, 95)
                         .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(21, 21, 21)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(back2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                        .addComponent(back2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                 .addContainerGap())
@@ -178,7 +178,18 @@ private void viewtimetable(){
     }// </editor-fold>//GEN-END:initComponents
 
 private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-// TODO add your handling code here:
+ Dbcon db =new Dbcon();
+        String sql="delete from tbl_series_time_table where id='"+id+"'";
+        int r=db.insert(sql);
+        if(r>0){
+            JOptionPane.showMessageDialog(this,"successfully deleted");
+            ViewTimetable timetable=new ViewTimetable();
+        timetable.setVisible(true);
+        this.dispose();
+
+        }else{
+            JOptionPane.showMessageDialog(this,"deletion failed");
+        }
 }//GEN-LAST:event_deleteButtonActionPerformed
 
 private void viewTimeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewTimeTableMouseClicked
@@ -215,7 +226,7 @@ String sql = "select * from tbl_series_time_table where id ='" + row1 + "';";
         ResultSet rs = d.select(sql);
         try {
             if(rs.next()) {
-                            UpdateTimeTable us = new UpdateTimeTable();
+                            UpdateTimeTable us = new UpdateTimeTable(id);
                             us.setVisible(true);
                             this.dispose();
                         }
