@@ -209,20 +209,21 @@ DROP TABLE IF EXISTS `tbl_time_table`;
 
 CREATE TABLE `tbl_time_table` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `revision_code` int(11) NOT NULL,
-  `branch` varchar(50) NOT NULL,
-  `semester` varchar(50) NOT NULL,
-  `subject_code` varchar(50) NOT NULL,
-  `subject_name` varchar(50) NOT NULL,
-  `date` varchar(30) NOT NULL,
-  `time` varchar(20) NOT NULL,
+  `revision_code` int(11) DEFAULT NULL,
+  `branch` varchar(50) DEFAULT NULL,
+  `semester` varchar(50) DEFAULT NULL,
+  `subject_code` varchar(50) DEFAULT NULL,
+  `subject_name` varchar(50) DEFAULT NULL,
+  `date` varchar(30) DEFAULT NULL,
+  `time` varchar(20) DEFAULT NULL,
   `master_id` int(11) DEFAULT NULL,
+  `date_milli` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_time_table` */
 
-insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`) values (1,2050,'electronics','sem4','4026','Computer Architecture','0000-00-00','09:15:00',0),(3,8989,'automobile','sem1','4026','Computer Architecture','Thu Dec 08 00:00:00 IST 2016','1:5:am',NULL),(4,565,'Electronics','sem3','1212','DigitalComputerPrinciples','Wed Dec 14 00:00:00 IST 2016','9:0:am',NULL),(6,1000,'Mechanical Engineering','sem1','6667','software engineering','Mon Dec 05 00:00:00 IST 2016','1:0:am',NULL);
+insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`,`date_milli`) values (7,87987,'Mechanical Engineering','semester 2','5670','Microprocessor','Fri Jan 27 00:00:00 IST 2017','6:10:am',NULL,'1485455400000');
 
 /*Table structure for table `tbl_time_table_master` */
 
