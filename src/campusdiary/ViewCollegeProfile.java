@@ -93,6 +93,11 @@ private void viewcollege(){
             }
         });
         jScrollPane1.setViewportView(College);
+        if (College.getColumnModel().getColumnCount() > 0) {
+            College.getColumnModel().getColumn(0).setMinWidth(0);
+            College.getColumnModel().getColumn(0).setPreferredWidth(0);
+            College.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         delete_button.setText("DELETE");
         delete_button.addActionListener(new java.awt.event.ActionListener() {

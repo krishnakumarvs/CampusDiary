@@ -38,18 +38,17 @@ public class ViewFeedBack extends javax.swing.JFrame {
             while(rs.next()){
                  String id=rs.getString(1);
                  String own=rs.getString(2);
-                 String audien=rs.getString(3);
-                 String title=rs.getString(4);
-                 String date=rs.getString(5);
-                 String note=rs.getString(6);
-                 String coll_id=rs.getString(7);
+                 
+                 String title=rs.getString(3);
+                 String date=rs.getString(4);
+                 String note=rs.getString(5);
+                 String coll_id=rs.getString(6);
                    array[0]=id;
-                    array[1]=own;
-                    array[2]=audien;
-                    array[3]=title;
-                    array[4]=date;
-                    array[5]=note;
-                    array[6]=coll_id;
+                    array[1]=own; 
+                    array[2]=title;
+                    array[3]=date;
+                    array[4]=note;
+                    array[5]=coll_id;
                     model.addRow(array);
             }
         } catch (Exception e) {
@@ -92,11 +91,11 @@ public class ViewFeedBack extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Owner", "Audience", "Title", "Date", "Description", "College_id"
+                "Id", "Owner", "Title", "Date", "Description", "College_id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
