@@ -80,6 +80,7 @@ public class UpdateSylabus extends javax.swing.JFrame {
                 mod3.setText(rs.getString("module_3"));
                 mod4.setText(rs.getString("module_4"));
                 refe.setText(rs.getString("reference"));
+                sub1.setSelectedItem(rs.getString("subject_code"));
 
             }
         } catch (SQLException ex) {
