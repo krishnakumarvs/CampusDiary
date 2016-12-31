@@ -106,6 +106,11 @@ public class ViewOtherCollegeNews extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(news);
+        if (news.getColumnModel().getColumnCount() > 0) {
+            news.getColumnModel().getColumn(0).setMinWidth(0);
+            news.getColumnModel().getColumn(0).setPreferredWidth(0);
+            news.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

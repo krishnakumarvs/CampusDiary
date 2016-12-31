@@ -112,6 +112,11 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(sylabus);
+        if (sylabus.getColumnModel().getColumnCount() > 0) {
+            sylabus.getColumnModel().getColumn(0).setMinWidth(0);
+            sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
+            sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

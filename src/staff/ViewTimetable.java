@@ -110,7 +110,9 @@ private void viewtimetable(){
         });
         jScrollPane1.setViewportView(viewTimeTable);
         if (viewTimeTable.getColumnModel().getColumnCount() > 0) {
+            viewTimeTable.getColumnModel().getColumn(0).setMinWidth(0);
             viewTimeTable.getColumnModel().getColumn(0).setPreferredWidth(0);
+            viewTimeTable.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
