@@ -35,6 +35,8 @@ public class AdminHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         previous = new javax.swing.JButton();
         next = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -44,15 +46,24 @@ public class AdminHome extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         view = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        update = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenu();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +78,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         add.setText("Add");
 
-        jMenuItem1.setText("College");
+        jMenuItem1.setText("Branches");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -75,7 +86,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem1);
 
-        jMenuItem2.setText("Notification");
+        jMenuItem2.setText("Colleges");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -83,7 +94,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem2);
 
-        jMenuItem3.setText("TimeTable");
+        jMenuItem3.setText("Notification");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -91,7 +102,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem3);
 
-        jMenuItem4.setText("Sylabus");
+        jMenuItem4.setText(" Subjects");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -99,38 +110,83 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem4);
 
+        jMenuItem12.setText("Sylabus");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        add.add(jMenuItem12);
+
+        jMenuItem13.setText("TimeTable");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        add.add(jMenuItem13);
+
         jMenuBar1.add(add);
 
         view.setText("View");
 
-        jMenuItem5.setText("CollegeProfile");
+        jMenuItem5.setText("Branches");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         view.add(jMenuItem5);
 
-        jMenuItem6.setText("Notifications");
+        jMenuItem6.setText("Colleges");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         view.add(jMenuItem6);
 
         jMenuItem7.setText("FeedBack");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         view.add(jMenuItem7);
 
-        jMenuBar1.add(view);
-
-        update.setText("Update");
-
-        jMenuItem8.setText("CollegeProfile");
+        jMenuItem8.setText("Notifications");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
             }
         });
-        update.add(jMenuItem8);
+        view.add(jMenuItem8);
 
-        jMenuItem9.setText("TimeTable");
-        update.add(jMenuItem9);
+        jMenuItem9.setText("Subjects");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        view.add(jMenuItem9);
 
         jMenuItem10.setText("Sylabus");
-        update.add(jMenuItem10);
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        view.add(jMenuItem10);
 
-        jMenuBar1.add(update);
+        jMenuItem11.setText("TimeTable");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        view.add(jMenuItem11);
+
+        jMenuBar1.add(view);
 
         logout.setText("Logout");
         jMenuBar1.add(logout);
@@ -180,35 +236,86 @@ private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
 
 private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 
-    AddCollege addcollege = new AddCollege();
-                   addcollege.setVisible(true);
+    Branches branch = new Branches();
+                   branch.setVisible(true);
                     this.dispose();
-    
-    
     
 }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-AddNotification note = new AddNotification();
-                   note.setVisible(true);
+AddCollege college = new AddCollege();
+                   college.setVisible(true);
                     this.dispose();
 }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-TimeTable tb = new TimeTable();
-                   tb.setVisible(true);
+    AddNotification notify = new AddNotification();
+                  notify.setVisible(true);
                     this.dispose();
 }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jMenuItem8ActionPerformed
-
 private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-AddSylabus tb = new AddSylabus();
-                   tb.setVisible(true);
+AddSubject sub = new AddSubject();
+                   sub.setVisible(true);
            this.dispose();
 }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    
+    ViewBranches branch = new ViewBranches();
+                   branch.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    ViewNotification notify=new ViewNotification();
+             notify.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+         TimeTable timetable = new TimeTable();
+                   timetable.setVisible(true);
+                    this.dispose();
+    
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        
+        ViewCollegeProfile college=new ViewCollegeProfile();
+                   college.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+            ViewFeedBack feedback=new ViewFeedBack();
+                           feedback.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    ViewSubject subject=new ViewSubject();
+    subject.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    ViewSylabus sylabus=new ViewSylabus();
+                   sylabus.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        ViewTimeTable timetable=new ViewTimeTable();
+                   timetable.setVisible(true);
+                    this.dispose();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        AddSylabus sylabus=new AddSylabus();
+        sylabus.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,9 +355,13 @@ AddSylabus tb = new AddSylabus();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu add;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -259,10 +370,10 @@ AddSylabus tb = new AddSylabus();
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenu logout;
     private javax.swing.JButton next;
     private javax.swing.JButton previous;
-    private javax.swing.JMenu update;
     private javax.swing.JMenu view;
     // End of variables declaration//GEN-END:variables
 }
