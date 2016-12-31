@@ -68,6 +68,8 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         while(rs.next()){
             timetableid.setText(rs.getString(1));
             code.setText(rs.getString(2));
+            branch.setSelectedItem(rs.getString("branch"));
+            sub.setSelectedItem(rs.getString("subject_code"));
             
         }
         } catch (Exception e) {
@@ -131,7 +133,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Semester");
 
-        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "sem1", "sem2", "sem3", "sem4", "sem5", "sem6" }));
+        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--select--", "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
         sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 semActionPerformed(evt);
@@ -163,6 +165,8 @@ public class UpdateTimeTable extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Subject Name");
+
+        subname.setEditable(false);
 
         date1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,8 +329,8 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     String subcode = sub.getSelectedItem().toString();
     String subname1 = subname.getText();
 
-    
-    if(idd.equals("")||rev.equals("")||time.equals("")){
+    int t=sem.getSelectedIndex();
+    if(idd.equals("")||rev.equals("")||date1.getDate()==null||t==0||time.equals("")){
     
         JOptionPane.showMessageDialog(this,"enter the values");
     }else{   

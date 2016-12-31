@@ -177,7 +177,7 @@ public class UpdateSylabus extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Semester ");
 
-        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "semester 1", "semster 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--select--", "semester 1", "semster 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
         sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 semActionPerformed(evt);
@@ -190,6 +190,7 @@ public class UpdateSylabus extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Branch                 ");
 
+        subname.setEditable(false);
         subname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subnameActionPerformed(evt);
@@ -372,7 +373,8 @@ private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     String module3=mod3.getText();
     String module4=mod4.getText();
     String references=refe.getText();
-if(iid.equals("")||revision.equals("")||references.equals("")||module1.equals("")||module2.equals("")||module3.equals("")||module4.equals("")){
+    int k=sem.getSelectedIndex();
+if(iid.equals("")||revision.equals("")||references.equals("")||k==0||module1.equals("")||module2.equals("")||module3.equals("")||module4.equals("")){
         JOptionPane.showMessageDialog(this, "enter the values");
     }else{
     

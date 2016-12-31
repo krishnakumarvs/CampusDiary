@@ -81,6 +81,7 @@ public UpdateCollegeProfile(String id) {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Name");
 
+        college.setEditable(false);
         college.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 collegeActionPerformed(evt);
