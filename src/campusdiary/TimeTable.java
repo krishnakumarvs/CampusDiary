@@ -13,7 +13,10 @@ package campusdiary;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import db.Dbcon;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +32,27 @@ public class TimeTable extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         loadSubject();
+        loadbranch();
+    }
+    
+    private void clearText(){
+        code.setText("");
+    }
+    private void loadbranch()
+    {
+        try {
+            String sql="select * from tbl_branches" ;
+            Dbcon db = new Dbcon();
+            ResultSet rs=db.select(sql);
+            while (rs.next()) {
+                String br= rs.getString(2);
+                branch.addItem(br);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddSylabus.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }
 
     private void loadSubject() {
@@ -56,7 +80,6 @@ public class TimeTable extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        branch = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         sem = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
@@ -74,6 +97,7 @@ public class TimeTable extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         code = new javax.swing.JTextField();
+        branch = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -83,13 +107,6 @@ public class TimeTable extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Branch");
-
-        branch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Computer", "electronics", "architecture", "chemical", "civil", "automobile", "mechanical" }));
-        branch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                branchActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Semester");
@@ -159,6 +176,12 @@ public class TimeTable extends javax.swing.JFrame {
 
         jLabel3.setText("Revision Code");
 
+        branch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                branchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,19 +209,18 @@ public class TimeTable extends javax.swing.JFrame {
                                 .addComponent(mint, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(am, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(date1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(date1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(sem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(branch, 0, 196, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(subname, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(sub, javax.swing.GroupLayout.Alignment.LEADING, 0, 194, Short.MAX_VALUE))
-                            .addComponent(code)))
+                            .addComponent(subname)
+                            .addComponent(sub, 0, 210, Short.MAX_VALUE)
+                            .addComponent(code)
+                            .addComponent(branch, 0, 210, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jButton4)
                         .addGap(30, 30, 30)
                         .addComponent(jButton2)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +292,6 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     String subname1 = subname.getText();
 
     if (rev.equals("")
-            || subname1.equals("")
             || date1.getDate() == null
             || time.equals("")) {
         JOptionPane.showMessageDialog(this, "enter the values");
@@ -283,13 +304,10 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         } else {
             JOptionPane.showMessageDialog(this, "insertion failed");
         }
+        clearText();
     }
 
 }//GEN-LAST:event_jButton2ActionPerformed
-
-private void branchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_branchActionPerformed
 
 private void amActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amActionPerformed
     String value = am.getText();
@@ -329,6 +347,10 @@ private void subItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:even
     private void date1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_date1ActionPerformed
+
+    private void branchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_branchActionPerformed
 
     /**
      * @param args the command line arguments
