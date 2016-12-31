@@ -26,7 +26,11 @@ public class AddNotification extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+     private void clearText(){
+        title.setText("");
+        owner.setText("");
+        description.setText("");
+        }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -199,7 +203,7 @@ private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
         JOptionPane.showMessageDialog(this, "enter the values");
     }else{
     Dbcon db = new Dbcon();
-     String sql = "insert into tbl_notifications(owner,audience,title,date,description,college_id)values('"+ow+"','"+pry+"','"+tt+"','"+temp+"','"+note+"','101');";
+     String sql = "insert into tbl_notifications(owner,audience,title,date,description)values('"+ow+"','"+pry+"','"+tt+"','"+temp+"','"+note+"');";
            int ins= db.insert(sql);
            if(ins>0){
                JOptionPane.showMessageDialog(this, "successfully inserted");
@@ -207,7 +211,7 @@ private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
                JOptionPane.showMessageDialog(this, "try again");
            }
 
-    
+    clearText();
     
     }
 }//GEN-LAST:event_submitActionPerformed
