@@ -135,7 +135,7 @@ public class AddSylabus extends javax.swing.JFrame {
             }
         });
 
-        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "semester 1", "semster 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        sem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--select--", "semester 1", "semster 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
         sem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 semActionPerformed(evt);
@@ -172,6 +172,7 @@ public class AddSylabus extends javax.swing.JFrame {
             }
         });
 
+        subname.setEditable(false);
         subname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subnameActionPerformed(evt);

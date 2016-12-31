@@ -248,13 +248,14 @@
     <Component class="javax.swing.JComboBox" name="sem">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="semester 1"/>
-            <StringItem index="1" value="semster 2"/>
-            <StringItem index="2" value="semester 3"/>
-            <StringItem index="3" value="semester 4"/>
-            <StringItem index="4" value="semester 5"/>
-            <StringItem index="5" value="semester 6"/>
+          <StringArray count="7">
+            <StringItem index="0" value="--select--"/>
+            <StringItem index="1" value="semester 1"/>
+            <StringItem index="2" value="semster 2"/>
+            <StringItem index="3" value="semester 3"/>
+            <StringItem index="4" value="semester 4"/>
+            <StringItem index="5" value="semester 5"/>
+            <StringItem index="6" value="semester 6"/>
           </StringArray>
         </Property>
       </Properties>
@@ -314,6 +315,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="subname">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subnameActionPerformed"/>
       </Events>

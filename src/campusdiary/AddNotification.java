@@ -28,7 +28,6 @@ public class AddNotification extends javax.swing.JFrame {
     }
      private void clearText(){
         title.setText("");
-        owner.setText("");
         description.setText("");
         }
     /** This method is called from within the constructor to
@@ -51,8 +50,6 @@ public class AddNotification extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         audience = new javax.swing.JComboBox();
         submit = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        owner = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
 
         jTextArea2.setColumns(20);
@@ -98,8 +95,6 @@ public class AddNotification extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Owner");
-
         jButton4.setText("BACK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,24 +121,22 @@ public class AddNotification extends javax.swing.JFrame {
                                 .addGap(23, 23, 23))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3))
+                                .addComponent(jLabel6)
                                 .addGap(28, 28, 28)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(submit)
-                                .addGap(48, 48, 48))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(audience, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(owner))))
+                            .addComponent(audience, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(106, 106, 106))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(120, 120, 120))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jButton4)
+                .addGap(62, 62, 62)
+                .addComponent(submit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,15 +159,11 @@ public class AddNotification extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(audience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(owner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))))
-                .addGap(47, 47, 47)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submit)
-                    .addComponent(jButton4))
-                .addGap(29, 29, 29))
+                    .addComponent(jButton4)
+                    .addComponent(submit))
+                .addGap(76, 76, 76))
         );
 
         pack();
@@ -192,18 +181,17 @@ private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
  String tt = title.getText();
     String note= description.getText();
     String pry =audience.getSelectedItem().toString();
-    String ow= owner.getText();
     Date date= new Date();
     long milliiii =  System.currentTimeMillis();
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(milliiii);
         String temp = c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH);
     int i=audience.getSelectedIndex();
-    if(tt.equals("")||note.equals("")||ow.equals("")||i==0){
+    if(tt.equals("")||note.equals("")||i==0){
         JOptionPane.showMessageDialog(this, "enter the values");
     }else{
     Dbcon db = new Dbcon();
-     String sql = "insert into tbl_notifications(owner,audience,title,date,description)values('"+ow+"','"+pry+"','"+tt+"','"+temp+"','"+note+"');";
+     String sql = "insert into tbl_notifications(owner,audience,title,date,description)values('ADMIN','"+pry+"','"+tt+"','"+temp+"','"+note+"');";
            int ins= db.insert(sql);
            if(ins>0){
                JOptionPane.showMessageDialog(this, "successfully inserted");
@@ -264,13 +252,11 @@ private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField owner;
     private javax.swing.JButton submit;
     private javax.swing.JTextField title;
     // End of variables declaration//GEN-END:variables
