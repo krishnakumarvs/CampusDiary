@@ -81,6 +81,8 @@ public class UpdateSylabus extends javax.swing.JFrame {
                 mod4.setText(rs.getString("module_4"));
                 refe.setText(rs.getString("reference"));
                 sub1.setSelectedItem(rs.getString("subject_code"));
+                branch.setSelectedItem(rs.getString("branch"));
+                sem.setSelectedItem(rs.getString("semester"));
 
             }
         } catch (SQLException ex) {
@@ -239,9 +241,6 @@ public class UpdateSylabus extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -285,7 +284,10 @@ public class UpdateSylabus extends javax.swing.JFrame {
                         .addGap(222, 222, 222)
                         .addComponent(jButton1)
                         .addGap(56, 56, 56)
-                        .addComponent(submit)))
+                        .addComponent(submit))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

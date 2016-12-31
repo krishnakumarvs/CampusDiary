@@ -45,7 +45,7 @@ public class ViewTimeTable extends javax.swing.JFrame {
             String sub=rs.getString(6);
             String date=rs.getString(7);
             String time=rs.getString(8);
-            String master=rs.getString(9);
+           
             array[0]=id;
             array[1]=code;
             array[2]=branch;
@@ -54,7 +54,7 @@ public class ViewTimeTable extends javax.swing.JFrame {
             array[5]=sub;
             array[6]=date;
             array[7]=time;
-            array[8]=master;
+          
             model.addRow(array);
         }
         } catch (Exception e) {
@@ -108,11 +108,11 @@ public class ViewTimeTable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Revision_code", "Branch", "Semester", "Subject_code", "Subject", "Date", "Time", "Master_id"
+                "Id", "Revision_code", "Branch", "Semester", "Subject_code", "Subject", "Date", "Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -140,7 +140,7 @@ public class ViewTimeTable extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 258, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addGap(110, 110, 110)
                 .addComponent(update_button)
@@ -148,9 +148,9 @@ public class ViewTimeTable extends javax.swing.JFrame {
                 .addComponent(delete_button)
                 .addGap(257, 257, 257))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

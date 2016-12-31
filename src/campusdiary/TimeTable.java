@@ -297,7 +297,8 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         JOptionPane.showMessageDialog(this, "enter the values");
     } else {
         Dbcon db = new Dbcon();
-        String sql = "insert into tbl_time_table(revision_code,branch,semester,subject_code,subject_name,date,time)values('" + rev + "','" + branchname + "','" + semester + "','" + subcode + "','" + subname1 + "','" + date + "','" + time + "')";
+        long milli = date1.getDate().getTime();
+        String sql = "insert into tbl_time_table(revision_code,branch,semester,subject_code,subject_name,date,time,date_milli)values('" + rev + "','" + branchname + "','" + semester + "','" + subcode + "','" + subname1 + "','" + date + "','" + time + "' , '"+milli+"')";
         int rs = db.insert(sql);
         if (rs > 0) {
             JOptionPane.showMessageDialog(this, "successfully inserted");
