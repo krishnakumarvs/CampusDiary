@@ -24,11 +24,11 @@ CREATE TABLE `tbl_branches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `branches` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_branches` */
 
-insert  into `tbl_branches`(`id`,`branches`) values (1,'cokms'),(2,'computer'),(3,'electronics');
+insert  into `tbl_branches`(`id`,`branches`) values (4,'Mechanical Engineering'),(7,'Electronics and Communication Engineering'),(9,'chemical engineering'),(10,'Automobile Engineering'),(11,'Electronics'),(12,'Commercial Practice');
 
 /*Table structure for table `tbl_colleges` */
 
@@ -36,17 +36,19 @@ DROP TABLE IF EXISTS `tbl_colleges`;
 
 CREATE TABLE `tbl_colleges` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `location` varchar(100) NOT NULL,
-  `branches` varchar(50) NOT NULL,
-  `contact_no` int(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  `branches` varchar(200) DEFAULT NULL,
+  `contact_no` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
   `web_site` varchar(100) DEFAULT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_colleges` */
+
+insert  into `tbl_colleges`(`id`,`name`,`location`,`branches`,`contact_no`,`email`,`web_site`,`password`) values (2,'Govt.Womens Polytechnic College Ernakulam','Ernakulam','computer,electronics,','568845657','hfhhj@khkjk','www.fuhggjh.uyhu','FVUlEXiW'),(3,'Govt>polytechnic College,kalamassery','ernakulam','Electronics and Communication Engineering,Chemical Engineering,Mechanical Engineering,','5789798','poly@technicalcell','www.polyjgjgj.cibh','UoSYt265'),(5,'Govt.Model Engineering College ','Ernakulam','Automobile Engineering,Mechanical Engineering,','8888888888','modelengineering@gmail.com','www.modelengineering.com','SwBZjybI');
 
 /*Table structure for table `tbl_feedback` */
 
@@ -54,18 +56,16 @@ DROP TABLE IF EXISTS `tbl_feedback`;
 
 CREATE TABLE `tbl_feedback` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `owner` varchar(50) NOT NULL,
-  `audience` varchar(50) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `college_id` int(11) NOT NULL,
+  `owner` varchar(50) DEFAULT NULL,
+  `audience` varchar(50) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `date` varchar(20) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_feedback` */
-
-insert  into `tbl_feedback`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (1,'','','','0000-00-00','it is very beautyful',0),(2,'','','','0000-00-00','easy to access',0);
 
 /*Table structure for table `tbl_login` */
 
@@ -92,13 +92,15 @@ CREATE TABLE `tbl_news` (
   `title` varchar(50) NOT NULL,
   `description` varchar(50) NOT NULL,
   `photos` varchar(500) DEFAULT NULL,
-  `owner_id` int(11) NOT NULL,
-  `owner_type` varchar(50) NOT NULL,
-  `audience` varchar(50) NOT NULL,
+  `owner_id` int(11) DEFAULT NULL,
+  `owner_type` varchar(50) DEFAULT NULL,
+  `audience` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_news` */
+
+insert  into `tbl_news`(`id`,`title`,`description`,`photos`,`owner_id`,`owner_type`,`audience`) values (1,'ANNUAL DAY','GGHGJGJGJ',NULL,23,'Staff','all');
 
 /*Table structure for table `tbl_notifications` */
 
@@ -106,18 +108,18 @@ DROP TABLE IF EXISTS `tbl_notifications`;
 
 CREATE TABLE `tbl_notifications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `owner` varchar(50) NOT NULL,
-  `audience` varchar(50) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `college_id` int(11) NOT NULL,
+  `owner` varchar(50) DEFAULT NULL,
+  `audience` varchar(50) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_notifications` */
 
-insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (1,'','','FGHXS','1997-03-04','DWDWC',0),(2,'','','union inauguration','2016-12-21','conducted correctly\nguests are invited',0);
+insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (4,'admin','student only','fee payment','2016-12-26','ggjghjjh',101),(6,'admin','staff only','arts day celebration','2016-12-27','inuguationhhik',NULL),(7,'admin','student only','union sddsd','2016-12-28','gjkhkjk',NULL),(9,'ADMIN','student only','fghh','2016-12-31','ytuiikji',NULL);
 
 /*Table structure for table `tbl_series_time_table` */
 
@@ -125,7 +127,7 @@ DROP TABLE IF EXISTS `tbl_series_time_table`;
 
 CREATE TABLE `tbl_series_time_table` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `branch` varchar(30) NOT NULL,
+  `branch` varchar(100) NOT NULL,
   `semester` varchar(10) NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `subject_name` varchar(50) NOT NULL,
@@ -133,11 +135,11 @@ CREATE TABLE `tbl_series_time_table` (
   `time` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_series_time_table` */
 
-insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`) values (4,'computer','semester 4','4026','Computer Architecture','Wed Mar 08 00:00:00 IST 2017','9:35:am'),(5,'electronics','semester 3','4031','Operating System','Wed Nov 16 00:00:00 IST 2016','9:35:am'),(6,'computer','semester 4','3026','Software Testing','Sun Dec 04 00:00:00 IST 2016','10:0:am'),(7,'computer','semester 4','3026','Software Testing','Mon Dec 05 00:00:00 IST 2016','9:30:am');
+insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`) values (4,'computer','semester 4','4026','Computer Architecture','Wed Mar 08 00:00:00 IST 2017','9:35:am'),(6,'Electronics and Communication Engineering','semester 3','1213','Industrial management and safety','Mon Dec 05 00:00:00 IST 2016','10:0:am'),(7,'computer','semester 4','3026','Software Testing','Mon Dec 05 00:00:00 IST 2016','9:30:am');
 
 /*Table structure for table `tbl_student` */
 
@@ -153,15 +155,15 @@ CREATE TABLE `tbl_student` (
   `phone_no` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `branch` varchar(20) NOT NULL,
+  `branch` varchar(100) NOT NULL,
   `admission_date` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_student` */
 
-insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`) values (6,'Amrutha Rag A D','puzhavelil(h)','Tue Jan 26 00:00:00 IST 1994','female','dhanu','70369546565','ammutfg@gmail.com','esryb','computer','Thu Jun 30 00:00:00 IST 2015'),(7,'sreelakshmi','puzhavelil(h)','Tue Dec 02 00:00:00 IST 1997','female','pradeep','70369546585','Sreelu@gmail.com','ammu','computer','Thu Jun 30 00:00:00 IST 2015'),(8,'Divya Krishnan','kadukkapillill(h)','Tue Dec 23 00:00:00 IST 1996','female','Baby','7293498088','divu@gmail.com','2038','computer','Thu Jun 30 00:00:00 IST 2015'),(9,'Anupama','karuvelilil(h)','Tue Mar 26 00:00:00 IST 1997','female','vineesh','70934934388','annu@gmail.com','352015','computer','Thu Jun 30 00:00:00 IST 2015'),(10,'Haritha unni','kuthiraparambil(h	)','Tue Apr 02 00:00:00 IST 1996','female','unni','67129329970','hari@gmail.com','5122016','computer','Thu Jun 30 00:00:00 IST 2015');
+insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`) values (6,'Amrutha Rag A D','puzhavelil(h)','Tue Jan 26 00:00:00 IST 1994','female','dhanu','70369546565','ammutfg@gmail.com','esryb','computer','Thu Jun 30 00:00:00 IST 2015'),(7,'sreelakshmi','puzhavelil(h)','Tue Dec 02 00:00:00 IST 1997','female','pradeep','70369546585','Sreelu@gmail.com','ammu','computer','Thu Jun 30 00:00:00 IST 2015'),(8,'Divya Krishnan','kadukkapillill(h)','Tue Dec 23 00:00:00 IST 1996','female','Baby','7293498088','divu@gmail.com','2038','computer','Thu Jun 30 00:00:00 IST 2015'),(9,'Anupama','karuvelilil(h)','Tue Mar 26 00:00:00 IST 1997','female','vineesh','70934934388','annu@gmail.com','352015','computer','Thu Jun 30 00:00:00 IST 2015'),(10,'Haritha unni','koppanalil(h	)','Tue Apr 02 00:00:00 IST 1996','female','unni','67129329970','hari@gmail.com','5122016','computer','Tue Dec 06 00:00:00 IST 2016'),(12,'Anitha','fyygyg','Sun Dec 12 00:00:00 IST 1999','female','anil','544655786868','anitha@gmail.com','12121999','Electronics','Tue Dec 27 00:00:00 IST 2016');
 
 /*Table structure for table `tbl_subjects` */
 
@@ -169,37 +171,37 @@ DROP TABLE IF EXISTS `tbl_subjects`;
 
 CREATE TABLE `tbl_subjects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_code` varchar(50) NOT NULL,
-  `subject_name` varchar(50) NOT NULL,
+  `subject_code` varchar(10) NOT NULL,
+  `subject_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_subjects` */
 
-insert  into `tbl_subjects`(`id`,`subject_code`,`subject_name`) values (1,'4026','Computer Architecture'),(2,'4031','Operating System'),(3,'3026','Software Testing');
+insert  into `tbl_subjects`(`id`,`subject_code`,`subject_name`) values (3,'5670','Microprocessor'),(4,'3008','Advanced c'),(5,'3998','embedded system'),(6,'1212','DigitalComputerPrinciples'),(7,'1213','Industrial management and safety'),(8,'6667','software engineering');
 
-/*Table structure for table `tbl_syllubus` */
+/*Table structure for table `tbl_sylabus` */
 
-DROP TABLE IF EXISTS `tbl_syllubus`;
+DROP TABLE IF EXISTS `tbl_sylabus`;
 
-CREATE TABLE `tbl_syllubus` (
+CREATE TABLE `tbl_sylabus` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `revision_code` int(11) NOT NULL,
+  `revision_code` varchar(11) NOT NULL,
   `branch` varchar(50) NOT NULL,
   `semester` varchar(50) NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `subject_name` varchar(50) NOT NULL,
-  `module_1` varchar(50) NOT NULL,
-  `module_2` varchar(50) NOT NULL,
-  `module_3` varchar(50) NOT NULL,
-  `module_4` varchar(50) NOT NULL,
-  `reference` varchar(50) NOT NULL,
+  `module_1` varchar(50) DEFAULT NULL,
+  `module_2` varchar(50) DEFAULT NULL,
+  `module_3` varchar(50) DEFAULT NULL,
+  `module_4` varchar(50) DEFAULT NULL,
+  `reference` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
-/*Data for the table `tbl_syllubus` */
+/*Data for the table `tbl_sylabus` */
 
-insert  into `tbl_syllubus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (1,749,'1','sem1','4026','Computer Architecture','ndkcndskn','nsjdn','wdeujvijq','efhfurfhn','defhewufwnfkwe'),(2,2010,'computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,2015,'computer','semester 5','4031','Operating System','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	');
+insert  into `tbl_sylabus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (2,'2010','computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,'2015','Automobile Engineering','semester 5','1212','DigitalComputerPrinciples','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	'),(5,'4444','Chemical Engineering','semster 2','4031','Operating System','ghghj','jbjj','cvbbn','vvgvgvg','vhjjh'),(6,'677','Mechanical Engineering','semester 1','4026','Computer Architecture','fuhihi','guhi','fuhuu','hjh','yfuhj'),(7,'11110','Mechanical Engineering','semester 1','5670','Microprocessor','nnn','nnnn','nnnn','nnn','qwqw'),(8,'3009','chemical engineering','semester 6','1212','DigitalComputerPrinciples','guagusgaudgadgagdagdjvjhxbcx','rututququwuqtu','sajghsjasgajgsajsg','adadsfrtrtytbc','gkjjo');
 
 /*Table structure for table `tbl_time_table` */
 
@@ -212,13 +214,15 @@ CREATE TABLE `tbl_time_table` (
   `semester` varchar(50) NOT NULL,
   `subject_code` varchar(50) NOT NULL,
   `subject_name` varchar(50) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `master_id` int(11) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `time` varchar(20) NOT NULL,
+  `master_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_time_table` */
+
+insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`) values (1,2050,'electronics','sem4','4026','Computer Architecture','0000-00-00','09:15:00',0),(3,8989,'automobile','sem1','4026','Computer Architecture','Thu Dec 08 00:00:00 IST 2016','1:5:am',NULL),(4,565,'Electronics','sem3','1212','DigitalComputerPrinciples','Wed Dec 14 00:00:00 IST 2016','9:0:am',NULL),(6,1000,'Mechanical Engineering','sem1','6667','software engineering','Mon Dec 05 00:00:00 IST 2016','1:0:am',NULL);
 
 /*Table structure for table `tbl_time_table_master` */
 
