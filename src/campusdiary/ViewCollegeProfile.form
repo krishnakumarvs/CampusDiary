@@ -37,6 +37,8 @@
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
               <Component id="back1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Component id="delete_button" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
           </Group>
@@ -53,6 +55,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="delete_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="back1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
           </Group>
@@ -152,6 +155,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="VIEW COLLEGES"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UPDATE"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

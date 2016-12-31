@@ -68,6 +68,7 @@ private void viewcollege(){
         delete_button = new javax.swing.JButton();
         back1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +117,13 @@ private void viewcollege(){
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("VIEW COLLEGES");
 
+        jButton1.setText("UPDATE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,6 +140,8 @@ private void viewcollege(){
                 .addGap(125, 125, 125)
                 .addComponent(back1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(90, 90, 90)
                 .addComponent(delete_button)
                 .addGap(278, 278, 278))
         );
@@ -145,7 +155,8 @@ private void viewcollege(){
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(delete_button)
-                    .addComponent(back1))
+                    .addComponent(back1)
+                    .addComponent(jButton1))
                 .addGap(72, 72, 72))
         );
 
@@ -187,6 +198,13 @@ private void viewcollege(){
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_back1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        UpdateCollegeProfile college=new UpdateCollegeProfile(id);
+                college.setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +244,7 @@ private void viewcollege(){
     private javax.swing.JTable College;
     private javax.swing.JButton back1;
     private javax.swing.JButton delete_button;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
