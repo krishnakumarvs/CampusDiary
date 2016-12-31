@@ -109,6 +109,11 @@ public class ViewFeedBack extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(feedback);
+        if (feedback.getColumnModel().getColumnCount() > 0) {
+            feedback.getColumnModel().getColumn(0).setMinWidth(0);
+            feedback.getColumnModel().getColumn(0).setPreferredWidth(0);
+            feedback.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("FEED BACK");

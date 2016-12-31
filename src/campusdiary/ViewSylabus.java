@@ -121,6 +121,11 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(sylabus);
+        if (sylabus.getColumnModel().getColumnCount() > 0) {
+            sylabus.getColumnModel().getColumn(0).setMinWidth(0);
+            sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
+            sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         update_button.setText("UPDATE");
         update_button.addActionListener(new java.awt.event.ActionListener() {

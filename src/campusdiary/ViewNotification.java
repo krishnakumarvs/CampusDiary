@@ -100,6 +100,11 @@ public class ViewNotification extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(notification);
+        if (notification.getColumnModel().getColumnCount() > 0) {
+            notification.getColumnModel().getColumn(0).setMinWidth(0);
+            notification.getColumnModel().getColumn(0).setPreferredWidth(0);
+            notification.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         back1.setText("Back");
         back1.addActionListener(new java.awt.event.ActionListener() {

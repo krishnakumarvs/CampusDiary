@@ -104,6 +104,11 @@ public class ViewSubject extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(subject);
+        if (subject.getColumnModel().getColumnCount() > 0) {
+            subject.getColumnModel().getColumn(0).setMinWidth(0);
+            subject.getColumnModel().getColumn(0).setPreferredWidth(0);
+            subject.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
