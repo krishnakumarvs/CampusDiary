@@ -75,9 +75,9 @@ public class AddTimeTable extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
         submit = new javax.swing.JButton();
-        branch = new javax.swing.JComboBox<String>();
-        semester = new javax.swing.JComboBox<String>();
-        subjectCode = new javax.swing.JComboBox<String>();
+        branch = new javax.swing.JComboBox<>();
+        semester = new javax.swing.JComboBox<>();
+        subjectCode = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         subjectName = new javax.swing.JTextField();
@@ -88,17 +88,22 @@ public class AddTimeTable extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14));
-        jLabel1.setText("Series Time Table");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("SERIES TIME TABLE");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Branch");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Semester");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Date");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Time");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Subject code");
 
         back.setText("Back");
@@ -115,7 +120,7 @@ public class AddTimeTable extends javax.swing.JFrame {
             }
         });
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
 
         subjectCode.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -128,6 +133,7 @@ public class AddTimeTable extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Subject Name");
 
         subjectName.setEditable(false);
@@ -194,7 +200,7 @@ public class AddTimeTable extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(170, 170, 170)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -229,7 +235,7 @@ public class AddTimeTable extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(subjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back)
                     .addComponent(submit))

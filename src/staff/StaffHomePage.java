@@ -48,15 +48,14 @@ public class StaffHomePage extends javax.swing.JFrame {
         notification = new javax.swing.JMenuItem();
         stimetable = new javax.swing.JMenuItem();
         feedback = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        studentUpdate = new javax.swing.JMenuItem();
-        updateTimeTable = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -121,26 +120,6 @@ public class StaffHomePage extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Update ");
-
-        studentUpdate.setText("Student Details");
-        studentUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentUpdateActionPerformed(evt);
-            }
-        });
-        jMenu2.add(studentUpdate);
-
-        updateTimeTable.setText("Time Table");
-        updateTimeTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateTimeTableActionPerformed(evt);
-            }
-        });
-        jMenu2.add(updateTimeTable);
-
-        jMenuBar1.add(jMenu2);
-
         jMenu5.setText("View");
 
         jMenuItem9.setText("Other College News");
@@ -152,16 +131,52 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenu5.add(jMenuItem9);
 
         jMenuItem10.setText("Time Table");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem10);
 
         jMenuItem11.setText("Feed Back");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem11);
 
         jMenuItem13.setText("Student Details");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem13);
 
         jMenuItem14.setText("Sylabus");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem14);
+
+        jMenuItem1.setText("CollegesProfile");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem1);
+
+        jMenuItem3.setText("Notifications");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
 
         jMenuBar1.add(jMenu5);
 
@@ -202,7 +217,9 @@ public class StaffHomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_feedbackActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
+        ViewOtherCollegeNews news=new ViewOtherCollegeNews();
+        news.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void studentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentActionPerformed
@@ -212,13 +229,6 @@ public class StaffHomePage extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_studentActionPerformed
-
-    private void studentUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentUpdateActionPerformed
-        // TODO add your handling code here:
-         UpdateStud us = new UpdateStud();
-        us.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_studentUpdateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -239,16 +249,47 @@ public class StaffHomePage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_stimetableActionPerformed
 
-    private void updateTimeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateTimeTableActionPerformed
-        // TODO add your handling code here:
-        UpdateTimeTable at = new UpdateTimeTable();
-        at.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_updateTimeTableActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        ViewTimetable timetable=new ViewTimetable();
+        timetable.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        ViewStudents students=new ViewStudents();
+        students.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+
+        ViewCollegeProfile college=new ViewCollegeProfile();
+        college.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        ViewSylabus sylabus=new ViewSylabus();
+        sylabus.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+
+            ViewFeedback feedback=new ViewFeedback();
+            feedback.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        ViewNotification notify=new ViewNotification();
+        notify.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,25 +332,24 @@ public class StaffHomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuItem notification;
     private javax.swing.JMenuItem stimetable;
     private javax.swing.JMenuItem student;
-    private javax.swing.JMenuItem studentUpdate;
-    private javax.swing.JMenuItem updateTimeTable;
     // End of variables declaration//GEN-END:variables
 }
