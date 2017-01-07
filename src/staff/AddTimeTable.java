@@ -120,7 +120,7 @@ public class AddTimeTable extends javax.swing.JFrame {
             }
         });
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--", "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
 
         subjectCode.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -142,6 +142,10 @@ public class AddTimeTable extends javax.swing.JFrame {
                 subjectNameActionPerformed(evt);
             }
         });
+
+        hour.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+
+        minute.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
 
         meridian.setText("am");
         meridian.addActionListener(new java.awt.event.ActionListener() {
@@ -257,11 +261,17 @@ public class AddTimeTable extends javax.swing.JFrame {
         String ti = hr + ":" + mi + ":" + me ;
         String sub = subjectCode.getSelectedItem().toString();
         String subn = subjectName.getText();
-        Dbcon d = new Dbcon();
-        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "');";
+        int i=semester.getSelectedIndex();
+        
+        if(i==0||date.getDate()==null||ti.equals("")){
+            JOptionPane.showMessageDialog(this,"please enter the values");
+        }else{
+        Dbcon db = new Dbcon();
+        long milli = date.getDate().getTime();
+        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time,date_milli)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "','"+milli+"');";
        System.out.println(sql);
 
-       int ins = d.insert(sql);
+       int ins = db.insert(sql);
         if (ins > 0) {
             JOptionPane.showMessageDialog(rootPane, "Success");
 
@@ -269,7 +279,7 @@ public class AddTimeTable extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Could not insert");
 
         }
-
+        }
         // TODO add your handling code here:
 
     }//GEN-LAST:event_submitActionPerformed
