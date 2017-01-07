@@ -24,11 +24,11 @@ CREATE TABLE `tbl_branches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `branches` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_branches` */
 
-insert  into `tbl_branches`(`id`,`branches`) values (4,'Mechanical Engineering'),(7,'Electronics and Communication Engineering'),(9,'chemical engineering'),(10,'Automobile Engineering'),(11,'Electronics'),(12,'Commercial Practice');
+insert  into `tbl_branches`(`id`,`branches`) values (4,'Mechanical Engineering'),(7,'Electronics and Communication Engineering'),(9,'chemical engineering'),(10,'Automobile Engineering'),(11,'Electronics'),(12,'Commercial Practice'),(13,'computer engineering');
 
 /*Table structure for table `tbl_colleges` */
 
@@ -44,11 +44,11 @@ CREATE TABLE `tbl_colleges` (
   `web_site` varchar(100) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_colleges` */
 
-insert  into `tbl_colleges`(`id`,`name`,`location`,`branches`,`contact_no`,`email`,`web_site`,`password`) values (2,'Govt.Womens Polytechnic College Ernakulam','Ernakulam','computer,electronics,','568845657','hfhhj@khkjk','www.fuhggjh.uyhu','FVUlEXiW'),(3,'Govt>polytechnic College,kalamassery','ernakulam','Electronics and Communication Engineering,Chemical Engineering,Mechanical Engineering,','5789798','poly@technicalcell','www.polyjgjgj.cibh','UoSYt265'),(5,'Govt.Model Engineering College ','Ernakulam','Automobile Engineering,Mechanical Engineering,','8888888888','modelengineering@gmail.com','www.modelengineering.com','SwBZjybI');
+insert  into `tbl_colleges`(`id`,`name`,`location`,`branches`,`contact_no`,`email`,`web_site`,`password`) values (2,'Govt.Womens Polytechnic College Ernakulam','Ernakulam','computer,electronics,','568845657','hfhhj@khkjk','www.fuhggjh.uyhu','FVUlEXiW'),(3,'Govt>polytechnic College,kalamassery','ernakulam','Electronics and Communication Engineering,Chemical Engineering,Mechanical Engineering,','5789798','poly@technicalcell','www.polyjgjgj.cibh','UoSYt265'),(5,'Govt.Model Engineering College ','Ernakulam,kerala','Mechanical Engineering,Automobile Engineering,Commercial Practice,Electronics,','8888888888','modelengineering@gmail.com','www.modelengineering.com','SwBZjybI'),(6,'Govt.polytechnic College,Cherthalla','cherthalla,Alapuzha','Mechanical Engineering,Electronics and Communication Engineering,Electronics,Commercial Practice,Automobile Engineering,','44444444','ggfh@jhgjh','www.gdfhfh.com','iBfr6pBL');
 
 /*Table structure for table `tbl_feedback` */
 
@@ -63,9 +63,11 @@ CREATE TABLE `tbl_feedback` (
   `description` varchar(100) DEFAULT NULL,
   `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_feedback` */
+
+insert  into `tbl_feedback`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (5,'STAFF','ADMIN','hkjhkjhk','2016-12-31','jhjjjjjjjjjjj',101);
 
 /*Table structure for table `tbl_login` */
 
@@ -115,11 +117,11 @@ CREATE TABLE `tbl_notifications` (
   `description` varchar(100) DEFAULT NULL,
   `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_notifications` */
 
-insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (4,'admin','student only','fee payment','2016-12-26','ggjghjjh',101),(6,'admin','staff only','arts day celebration','2016-12-27','inuguationhhik',NULL),(7,'admin','student only','union sddsd','2016-12-28','gjkhkjk',NULL),(9,'ADMIN','student only','fghh','2016-12-31','ytuiikji',NULL);
+insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (4,'admin','student only','fee payment','2016-12-26','ggjghjjh',101),(6,'admin','staff only','arts day celebration','2016-12-27','inuguationhhik',NULL),(7,'admin','student only','union sddsd','2016-12-28','gjkhkjk',NULL),(9,'ADMIN','student only','fghh','2016-12-31','ytuiikji',NULL),(10,'STAFF','student only','guhihi','2016-12-31','vjkjkljl',101),(11,'STAFF','student only','ljsljsl','2016-12-31','bknnnnnnn',101),(12,'ADMIN','all','Poly day','2016-12-31','celebration',NULL);
 
 /*Table structure for table `tbl_series_time_table` */
 
@@ -127,19 +129,20 @@ DROP TABLE IF EXISTS `tbl_series_time_table`;
 
 CREATE TABLE `tbl_series_time_table` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `branch` varchar(100) NOT NULL,
-  `semester` varchar(10) NOT NULL,
-  `subject_code` varchar(50) NOT NULL,
-  `subject_name` varchar(50) NOT NULL,
+  `branch` varchar(100) DEFAULT NULL,
+  `semester` varchar(10) DEFAULT NULL,
+  `subject_code` varchar(50) DEFAULT NULL,
+  `subject_name` varchar(50) DEFAULT NULL,
   `date` varchar(30) DEFAULT NULL,
   `time` varchar(30) DEFAULT NULL,
+  `date_milli` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_series_time_table` */
 
-insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`) values (4,'computer','semester 4','4026','Computer Architecture','Wed Mar 08 00:00:00 IST 2017','9:35:am'),(6,'Electronics and Communication Engineering','semester 3','1213','Industrial management and safety','Mon Dec 05 00:00:00 IST 2016','10:0:am'),(7,'computer','semester 4','3026','Software Testing','Mon Dec 05 00:00:00 IST 2016','9:30:am');
+insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`date_milli`) values (10,'Automobile Engineering','semester 3','1212','DigitalComputerPrinciples','Mon Dec 05 00:00:00 IST 2016','3:10:pm',NULL),(11,'Mechanical Engineering','semester 4','3998','embedded system','Tue Dec 13 00:00:00 IST 2016','11:0:am','1481567400000');
 
 /*Table structure for table `tbl_student` */
 
@@ -147,23 +150,25 @@ DROP TABLE IF EXISTS `tbl_student`;
 
 CREATE TABLE `tbl_student` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `dob` varchar(50) NOT NULL,
-  `gender` varchar(30) NOT NULL,
-  `guardian_name` varchar(30) NOT NULL,
-  `phone_no` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `branch` varchar(100) NOT NULL,
-  `admission_date` varchar(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `dob` varchar(50) DEFAULT NULL,
+  `gender` varchar(30) DEFAULT NULL,
+  `guardian_name` varchar(30) DEFAULT NULL,
+  `phone_no` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `password` varchar(30) DEFAULT NULL,
+  `branch` varchar(100) DEFAULT NULL,
+  `admission_date` varchar(50) DEFAULT NULL,
+  `dob_milli` varchar(50) DEFAULT NULL,
+  `admdate_milli` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_student` */
 
-insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`) values (6,'Amrutha Rag A D','puzhavelil(h)','Tue Jan 26 00:00:00 IST 1994','female','dhanu','70369546565','ammutfg@gmail.com','esryb','computer','Thu Jun 30 00:00:00 IST 2015'),(7,'sreelakshmi','puzhavelil(h)','Tue Dec 02 00:00:00 IST 1997','female','pradeep','70369546585','Sreelu@gmail.com','ammu','computer','Thu Jun 30 00:00:00 IST 2015'),(8,'Divya Krishnan','kadukkapillill(h)','Tue Dec 23 00:00:00 IST 1996','female','Baby','7293498088','divu@gmail.com','2038','computer','Thu Jun 30 00:00:00 IST 2015'),(9,'Anupama','karuvelilil(h)','Tue Mar 26 00:00:00 IST 1997','female','vineesh','70934934388','annu@gmail.com','352015','computer','Thu Jun 30 00:00:00 IST 2015'),(10,'Haritha unni','koppanalil(h	)','Tue Apr 02 00:00:00 IST 1996','female','unni','67129329970','hari@gmail.com','5122016','computer','Tue Dec 06 00:00:00 IST 2016'),(12,'Anitha','fyygyg','Sun Dec 12 00:00:00 IST 1999','female','anil','544655786868','anitha@gmail.com','12121999','Electronics','Tue Dec 27 00:00:00 IST 2016');
+insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`,`dob_milli`,`admdate_milli`) values (15,'fjhjhj','jgj','Wed Oct 13 00:00:00 IST 1999','female','ihio','567898765','hgg@gjgj','13101999','Commercial Practice','Wed Oct 13 00:00:00 IST 1999','939753000000','1483036200000');
 
 /*Table structure for table `tbl_subjects` */
 
@@ -197,11 +202,11 @@ CREATE TABLE `tbl_sylabus` (
   `module_4` varchar(50) DEFAULT NULL,
   `reference` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_sylabus` */
 
-insert  into `tbl_sylabus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (2,'2010','computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,'2015','Automobile Engineering','semester 5','1212','DigitalComputerPrinciples','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	'),(5,'4444','Chemical Engineering','semster 2','4031','Operating System','ghghj','jbjj','cvbbn','vvgvgvg','vhjjh'),(6,'677','Mechanical Engineering','semester 1','4026','Computer Architecture','fuhihi','guhi','fuhuu','hjh','yfuhj'),(7,'11110','Mechanical Engineering','semester 1','5670','Microprocessor','nnn','nnnn','nnnn','nnn','qwqw'),(8,'3009','chemical engineering','semester 6','1212','DigitalComputerPrinciples','guagusgaudgadgagdagdjvjhxbcx','rututququwuqtu','sajghsjasgajgsajsg','adadsfrtrtytbc','gkjjo');
+insert  into `tbl_sylabus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (2,'2010','computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,'2015','Automobile Engineering','semester 5','1212','DigitalComputerPrinciples','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	'),(5,'4444','Chemical Engineering','semster 2','4031','Operating System','ghghj','jbjj','cvbbn','vvgvgvg','vhjjh'),(6,'677','Mechanical Engineering','semester 1','4026','Computer Architecture','fuhihi','guhi','fuhuu','hjh','yfuhj'),(7,'11110','Mechanical Engineering','semester 1','5670','Microprocessor','nnn','nnnn','nnnn','nnn','qwqw'),(8,'3009','chemical engineering','semester 6','1212','DigitalComputerPrinciples','guagusgaudgadgagdagdjvjhxbcx','rututququwuqtu','sajghsjasgajgsajsg','adadsfrtrtytbc','gkjjo'),(9,'676','computer engineering','semester 3','1212','DigitalComputerPrinciples','bvbbbbbbbbbbbbbbbbbbb','nnnnnnnnnnnnnn','vbbvnbvn','vjnbjj','dhhgjhgjhjhj');
 
 /*Table structure for table `tbl_time_table` */
 
@@ -219,11 +224,11 @@ CREATE TABLE `tbl_time_table` (
   `master_id` int(11) DEFAULT NULL,
   `date_milli` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_time_table` */
 
-insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`,`date_milli`) values (7,87987,'Mechanical Engineering','semester 2','5670','Microprocessor','Fri Jan 27 00:00:00 IST 2017','6:10:am',NULL,'1485455400000');
+insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`,`date_milli`) values (7,87987,'Mechanical Engineering','semester 2','5670','Microprocessor','Fri Jan 27 00:00:00 IST 2017','6:10:am',NULL,'1485455400000'),(8,676,'chemical engineering','semester 3','6667','software engineering','Thu Feb 09 00:00:00 IST 2017','10:0:am',NULL,'1486578600000');
 
 /*Table structure for table `tbl_time_table_master` */
 
