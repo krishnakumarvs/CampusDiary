@@ -39,10 +39,10 @@ public class ViewFeedBack extends javax.swing.JFrame {
                  String id=rs.getString(1);
                  String own=rs.getString(2);
                  
-                 String title=rs.getString(3);
-                 String date=rs.getString(4);
-                 String note=rs.getString(5);
-                 String coll_id=rs.getString(6);
+                 String title=rs.getString(4);
+                 String date=rs.getString(5);
+                 String note=rs.getString(6);
+                 String coll_id=rs.getString(7);
                    array[0]=id;
                     array[1]=own; 
                     array[2]=title;
