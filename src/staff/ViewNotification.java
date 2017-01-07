@@ -39,18 +39,16 @@ public class ViewNotification extends javax.swing.JFrame {
              while(rs.next()){
                  String id=rs.getString(1);
                  String own=rs.getString(2);
-                 String audien=rs.getString(3);
                  String title=rs.getString(4);
                  String date=rs.getString(5);
                  String note=rs.getString(6);
                  String coll_id=rs.getString(7);
                    array[0]=id;
                     array[1]=own;
-                    array[2]=audien;
-                    array[3]=title;
-                    array[4]=date;
-                    array[5]=note;
-                    array[6]=coll_id;
+                    array[2]=title;
+                    array[3]=date;
+                    array[4]=note;
+                    array[5]=coll_id;
                     model.addRow(array);
              }
         } catch (Exception e) {
@@ -83,11 +81,11 @@ public class ViewNotification extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Owner", "Audience", "Title", "Date", "Description", "College_id"
+                "Id", "Owner", "Title", "Date", "Description", "College_id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -100,6 +98,11 @@ public class ViewNotification extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(notification);
+        if (notification.getColumnModel().getColumnCount() > 0) {
+            notification.getColumnModel().getColumn(0).setMinWidth(0);
+            notification.getColumnModel().getColumn(0).setPreferredWidth(0);
+            notification.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         back1.setText("Back");
         back1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,21 +130,22 @@ public class ViewNotification extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(258, Short.MAX_VALUE)
-                .addComponent(back1)
-                .addGap(87, 87, 87)
-                .addComponent(update_button)
-                .addGap(49, 49, 49)
-                .addComponent(delete_button)
-                .addGap(205, 205, 205))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(back1)
+                        .addGap(39, 39, 39)
+                        .addComponent(update_button)
+                        .addGap(46, 46, 46)
+                        .addComponent(delete_button)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +153,13 @@ public class ViewNotification extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back1)
                     .addComponent(update_button)
                     .addComponent(delete_button))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,6 +231,9 @@ public class ViewNotification extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ViewNotification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
