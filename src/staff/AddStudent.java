@@ -339,26 +339,22 @@ public class AddStudent extends javax.swing.JFrame {
         String gur = guardian.getText();
         String ph = phone.getText();
         String em = email.getText();
-
         Date dateOfBith = dob.getDate();
         Date add = admdate.getDate();
-        
+        String br = branch.getSelectedItem().toString();
         int i = branch.getSelectedIndex();
         if (na.equals("") || ad.equals("")|| agg==null|| gen.equals("") || gur.equals("") || ph.equals("") || em.equals("") || i==0 || dateOfBith==null || add== null ) {
             JOptionPane.showMessageDialog(this, "Please Enter The Values");
         } else {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(dateOfBith);
-
             String ps = calendar.get(Calendar.DAY_OF_MONTH) + "" + (calendar.get(Calendar.MONTH) + 1) + "" + calendar.get(Calendar.YEAR) + "";
-
-            String br = branch.getSelectedItem().toString();
             String adm = admdate.getDate().toString();
-
             Dbcon d = new Dbcon();
-            
+            long milli_dob=dob.getDate() .getTime();
+            long milli_adm=admdate.getDate() .getTime();
             String ag = dob.getDate().toString();
-            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "');";
+            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','"+milli_dob+"','"+milli_adm+"');";
             
             System.out.println(sql);
 

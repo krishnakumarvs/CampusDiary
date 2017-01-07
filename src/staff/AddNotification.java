@@ -24,9 +24,7 @@ public class AddNotification extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
      private void clearText(){
-        owner.setText("");
-        
-        title.setText("");
+          title.setText("");
         description.setText("");
         
     }
@@ -49,8 +47,6 @@ public class AddNotification extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
         back = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        owner = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         audience = new javax.swing.JComboBox<>();
 
@@ -85,9 +81,6 @@ public class AddNotification extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setText("owner");
-
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Audience");
 
@@ -104,11 +97,9 @@ public class AddNotification extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel6))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(owner)
                             .addComponent(title)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                             .addComponent(audience, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -135,11 +126,7 @@ public class AddNotification extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(owner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(audience, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -157,7 +144,6 @@ public class AddNotification extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String tit=title.getText();
-        String ow= owner.getText();
         String au= audience.getSelectedItem().toString();
         Date date;
         date = new Date();
@@ -168,13 +154,12 @@ public class AddNotification extends javax.swing.JFrame {
         String des=description.getText();
          Dbcon d = new Dbcon();
          int i=audience.getSelectedIndex();
-         if(tit.equals("")||ow.equals("")||i==0||des.equals("")){
+         if(tit.equals("")||i==0||des.equals("")){
              JOptionPane.showMessageDialog(this,"Please Enter The Values");
          }
          else
          {
-        String sql="insert into tbl_notifications(owner,audience,title,date,description,college_id)values('"+ow+"','"+au+"','"+tit+"','"+temp+"','"+des+"','101');";
-         System.out.println(sql);
+        String sql="insert into tbl_notifications(owner,audience,title,date,description,college_id)values('STAFF','"+au+"','"+tit+"','"+temp+"','"+des+"','101');";
         
         int ins = d.insert(sql);
         if(ins>0) {
@@ -237,10 +222,8 @@ public class AddNotification extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField owner;
     private javax.swing.JButton submit;
     private javax.swing.JTextField title;
     // End of variables declaration//GEN-END:variables
