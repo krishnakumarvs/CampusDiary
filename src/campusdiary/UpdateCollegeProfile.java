@@ -78,7 +78,7 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("SUBMIT");
+        jButton1.setText("UPDATE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -239,6 +239,10 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
             int ins = db.insert(sql);
             if (ins > 0) {
                 JOptionPane.showMessageDialog(this, "successfully inserted");
+                 ViewCollegeProfile college = new ViewCollegeProfile();
+        college.setVisible(true);    
+        this.dispose();
+   
             } else {
                 JOptionPane.showMessageDialog(this, "try again");
             }
@@ -283,8 +287,8 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        AdminHome ah = new AdminHome();
-        ah.setVisible(true);
+        ViewCollegeProfile college = new ViewCollegeProfile();
+        college.setVisible(true);    
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
