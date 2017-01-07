@@ -35,6 +35,7 @@ public class UpdateNotification extends javax.swing.JFrame {
             notifyid.setText(rs.getString(1));
             title.setText(rs.getString(4));
             description.setText(rs.getString(6));
+            audience.setSelectedItem(rs.getString(3));
         }
     } catch (Exception e) {
             JOptionPane.showMessageDialog(this,"error in listing");

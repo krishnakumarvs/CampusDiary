@@ -8,6 +8,7 @@ package staff;
 import db.Dbcon;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,7 +62,34 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         loadbranch();
         loadsubject();
-        seriesid.setText(id);
+        try {
+            Dbcon db=new Dbcon();
+        String sql="select * from tbl_series_time_table where id='"+id+"'";
+        ResultSet rs=db.select(sql);
+        if(rs.next()){
+            seriesid.setText(rs.getString(1));
+            branch.setSelectedItem(2);
+            semester.setSelectedItem(rs.getString(3));
+            subjectCode.setSelectedItem(rs.getString(4));
+            
+            String temp=rs.getString("time");
+            String split[]=temp.split(":");
+            String hr=split[0];
+            int hor=Integer.parseInt(hr);
+            String min=split[1];
+            int minit=Integer.parseInt(min);
+            String am=split[2];
+           hour.setValue(hor);
+           minute.setValue(minit);
+           meridian.setText(am);
+           
+           long milli=Long.parseLong(rs.getString("date_milli"));
+           Date ndate=new Date(milli);
+           date.setDate(ndate);
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -130,7 +158,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Subject Name");
 
-        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
+        semester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--select--", "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
 
         hour.setModel(new javax.swing.SpinnerNumberModel(0, 0, 12, 1));
 
@@ -267,6 +295,9 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         String mi = minute.getValue().toString();
         String me = meridian.getText();
         String ti = hr + ":" + mi + ":" + me ;
+        if(date.getDate()==null||ti.equals("")){
+            JOptionPane.showMessageDialog(this,"please enter the values");
+        }else{
         Dbcon db=new Dbcon();
         String sql="update tbl_series_time_table set branch='"+branches+"',semester='"+sem+"',subject_code='"+subcode+"',subject_name='"+subject+"',date='"+da+"',time='"+ti+"' where id='"+id+"'";
         int r=db.update(sql);
@@ -277,6 +308,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
         this.dispose();
         }else{
             JOptionPane.showMessageDialog(this,"updation failed");
+        }
         }
     }//GEN-LAST:event_submitActionPerformed
 

@@ -61,7 +61,15 @@ public class UpdateStudent extends javax.swing.JFrame {
                 guardian.setText(rs.getString("guardian_name"));
                 phone.setText(rs.getString("phone_no"));
                 email.setText(rs.getString("email"));
-
+                branch.setSelectedItem(rs.getString("branch"));
+                
+                long milli1=Long.parseLong(rs.getString("dob_milli"));
+           Date ndate=new Date(milli1);
+           dob.setDate(ndate);
+                
+           long milli2=Long.parseLong(rs.getString("admdate_milli"));
+           Date nedate=new Date(milli2);
+           admdate.setDate(ndate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
@@ -339,7 +347,8 @@ public class UpdateStudent extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
 
-        String an = admission.getText();
+        try {
+             String an = admission.getText();
         String na = name.getText();
         String ad = address.getText();
         String ag = dob.getDate().toString();
@@ -354,14 +363,16 @@ public class UpdateStudent extends javax.swing.JFrame {
         String em = email.getText();
         String br = branch.getSelectedItem().toString();
         String adm = admdate.getDate().toString();
-        if(an.equals("")||na.equals("")||ad.equals("")||dob.getDate()==null||gen.equals("")||gur.equals("")||ph.equals("")||em.equals("")||admdate.getDate()==null){
+        Date f=admdate.getDate();
+        Date d=dob.getDate();
+        if(an.equals("")||na.equals("")||ad.equals("")||d==null||gen.equals("")||gur.equals("")||ph.equals("")||em.equals("")||f==null){
             JOptionPane.showMessageDialog(this,"please enter the values");
         }else{
-        Dbcon d = new Dbcon();
+        Dbcon db = new Dbcon();
         String sql = "update tbl_student set name='"+na+"',address='"+ad+"',dob='"+ag+"',gender='"+gen+"',guardian_name='"+gur+"',phone_no='"+ph+"',email='"+em+"',branch ='"+br+"',admission_date ='"+adm+"' where id='"+an+"'";
         System.out.println(sql);
 
-        int ins = d.insert(sql);
+        int ins = db.insert(sql);
         if (ins > 0) {
             JOptionPane.showMessageDialog(rootPane, "Success");
             ViewStudents stud = new ViewStudents();
@@ -371,6 +382,9 @@ public class UpdateStudent extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Could not insert");
         }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_submitActionPerformed
 
