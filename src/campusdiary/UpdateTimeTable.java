@@ -88,10 +88,14 @@ public class UpdateTimeTable extends javax.swing.JFrame {
                 hour.setValue(hour_i);
                 mint.setValue(minit_i);
                 am.setText(meridian);
+                System.out.println("Date milli value " + rs.getString("date_milli"));
                 
-                long milli = Long.parseLong(rs.getString("date_milli"));
-                Date prevDate = new Date(milli);
-                date1.setDate(prevDate);
+                if(rs.getString("date_milli")!=null) {
+                    long milli = Long.parseLong(rs.getString("date_milli"));
+                    Date prevDate = new Date(milli);
+                    date1.setDate(prevDate);
+                }
+                
                 
             }
         } catch (Exception e) {

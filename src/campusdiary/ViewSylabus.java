@@ -104,7 +104,7 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18));
         jLabel1.setText("VIEW SYLABUS");
 
         delete_button.setText("DELETE");
@@ -136,11 +136,9 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(sylabus);
-        if (sylabus.getColumnModel().getColumnCount() > 0) {
-            sylabus.getColumnModel().getColumn(0).setMinWidth(0);
-            sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
-            sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
+        sylabus.getColumnModel().getColumn(0).setMinWidth(0);
+        sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
+        sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
 
         update_button.setText("UPDATE");
         update_button.addActionListener(new java.awt.event.ActionListener() {
@@ -154,26 +152,31 @@ public class ViewSylabus extends javax.swing.JFrame {
         jLabel4.setText("Module 3");
 
         mode1.setColumns(20);
+        mode1.setEditable(false);
         mode1.setRows(5);
         jScrollPane2.setViewportView(mode1);
 
         jLabel5.setText("Module 4");
 
         mode2.setColumns(20);
+        mode2.setEditable(false);
         mode2.setRows(5);
         jScrollPane3.setViewportView(mode2);
 
         mode3.setColumns(20);
+        mode3.setEditable(false);
         mode3.setRows(5);
         jScrollPane4.setViewportView(mode3);
 
         mode4.setColumns(20);
+        mode4.setEditable(false);
         mode4.setRows(5);
         jScrollPane5.setViewportView(mode4);
 
         jLabel2.setText("Module 1");
 
         ref.setColumns(20);
+        ref.setEditable(false);
         ref.setRows(5);
         jScrollPane6.setViewportView(ref);
 

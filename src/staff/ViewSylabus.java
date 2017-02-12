@@ -91,7 +91,7 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18));
         jLabel1.setText("VIEW SYLABUS");
 
         sylabus.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,25 +116,27 @@ public class ViewSylabus extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(sylabus);
-        if (sylabus.getColumnModel().getColumnCount() > 0) {
-            sylabus.getColumnModel().getColumn(0).setMinWidth(0);
-            sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
-            sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
+        sylabus.getColumnModel().getColumn(0).setMinWidth(0);
+        sylabus.getColumnModel().getColumn(0).setPreferredWidth(0);
+        sylabus.getColumnModel().getColumn(0).setMaxWidth(0);
 
         mode1.setColumns(20);
+        mode1.setEditable(false);
         mode1.setRows(5);
         jScrollPane2.setViewportView(mode1);
 
         mode2.setColumns(20);
+        mode2.setEditable(false);
         mode2.setRows(5);
         jScrollPane3.setViewportView(mode2);
 
         mode3.setColumns(20);
+        mode3.setEditable(false);
         mode3.setRows(5);
         jScrollPane4.setViewportView(mode3);
 
         mode4.setColumns(20);
+        mode4.setEditable(false);
         mode4.setRows(5);
         jScrollPane5.setViewportView(mode4);
 
@@ -147,6 +149,7 @@ public class ViewSylabus extends javax.swing.JFrame {
         jLabel5.setText("Module 4");
 
         ref.setColumns(20);
+        ref.setEditable(false);
         ref.setRows(5);
         jScrollPane6.setViewportView(ref);
 
@@ -191,7 +194,7 @@ public class ViewSylabus extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,20 +212,20 @@ public class ViewSylabus extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel4)
                                 .addGap(100, 100, 100)
                                 .addComponent(jLabel5)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 60, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

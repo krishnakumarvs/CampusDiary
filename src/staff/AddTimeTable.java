@@ -268,7 +268,7 @@ public class AddTimeTable extends javax.swing.JFrame {
         }else{
         Dbcon db = new Dbcon();
         long milli = date.getDate().getTime();
-        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time,date_milli)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "','"+milli+"');";
+        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "');";
        System.out.println(sql);
 
        int ins = db.insert(sql);

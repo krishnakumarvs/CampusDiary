@@ -52,6 +52,7 @@ public class ViewFeedBack extends javax.swing.JFrame {
                     model.addRow(array);
             }
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(this,"error in viewing");
         }
     }
