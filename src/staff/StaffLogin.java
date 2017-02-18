@@ -21,6 +21,9 @@ public class StaffLogin extends javax.swing.JFrame {
     /**
      * Creates new form StaffLogin
      */
+    public static String collegeName = "";
+    public static String collegeId = "";
+
     public StaffLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -110,13 +113,16 @@ public class StaffLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "enter the user name & password");
         } else {
             Dbcon d = new Dbcon();
-            String sql = "select * from tbl_login where username='" + name + "';";
+            String sql = "select * from tbl_login where email_id='" + name + "';";
             System.out.println(sql);
             ResultSet rs = d.select(sql);
             try {
                 if (rs.next()) {
                     String pwd = rs.getString("password");
                     if (paswd.equals(pwd)) {
+
+                        collegeName = rs.getString("college_name");
+                        collegeId = rs.getString("id");
 
                         StaffHomePage hp = new StaffHomePage();
                         hp.setVisible(true);
@@ -165,12 +171,12 @@ public class StaffLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new StaffLogin().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

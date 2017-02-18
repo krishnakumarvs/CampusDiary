@@ -258,27 +258,27 @@ public class AddTimeTable extends javax.swing.JFrame {
         String hr = hour.getValue().toString();
         String mi = minute.getValue().toString();
         String me = meridian.getText();
-        String ti = hr + ":" + mi + ":" + me ;
+        String ti = hr + ":" + mi + ":" + me;
         String sub = subjectCode.getSelectedItem().toString();
         String subn = subjectName.getText();
-        int i=semester.getSelectedIndex();
-        
-        if(i==0||date.getDate()==null||ti.equals("")){
-            JOptionPane.showMessageDialog(this,"please enter the values");
-        }else{
-        Dbcon db = new Dbcon();
-        long milli = date.getDate().getTime();
-        String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "');";
-       System.out.println(sql);
+        int i = semester.getSelectedIndex();
 
-       int ins = db.insert(sql);
-        if (ins > 0) {
-            JOptionPane.showMessageDialog(rootPane, "Success");
-
+        if (i == 0 || date.getDate() == null || ti.equals("")) {
+            JOptionPane.showMessageDialog(this, "please enter the values");
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Could not insert");
+            Dbcon db = new Dbcon();
+            long milli = date.getDate().getTime();
+            String sql = "insert into tbl_series_time_table(branch,semester,subject_code,subject_name,date,time,college_id,date_milli)values('" + br + "','" + sem + "','" + sub + "','" + subn + "','" + da + "','" + ti + "', '" + StaffLogin.collegeId + "','" + milli + "');";
+            System.out.println(sql);
 
-        }
+            int ins = db.insert(sql);
+            if (ins > 0) {
+                JOptionPane.showMessageDialog(rootPane, "Success");
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Could not insert");
+
+            }
         }
         // TODO add your handling code here:
 
@@ -292,12 +292,9 @@ public class AddTimeTable extends javax.swing.JFrame {
 
     private void subjectCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectCodeActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_subjectCodeActionPerformed
 
     private void subjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectNameActionPerformed
-
-
     }//GEN-LAST:event_subjectNameActionPerformed
 
     private void subjectCodeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_subjectCodeItemStateChanged
@@ -307,10 +304,10 @@ public class AddTimeTable extends javax.swing.JFrame {
             String subc = subjectCode.getSelectedItem().toString();
             Dbcon db = new Dbcon();
             ResultSet rs = db.select("select subject_name from tbl_subjects where subject_code ='" + subc + "'");
-            if(rs.next()){
-                 subjectName.setText(rs.getString("subject_name"));
+            if (rs.next()) {
+                subjectName.setText(rs.getString("subject_name"));
             }
-           
+
         } catch (SQLException ex) {
             System.out.println(ex);
         }
@@ -320,9 +317,9 @@ public class AddTimeTable extends javax.swing.JFrame {
     private void meridianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meridianActionPerformed
         // TODO add your handling code here:
         String me = meridian.getText();
-        if(me.equals("am")){
+        if (me.equals("am")) {
             meridian.setText("pm");
-        }else{
+        } else {
             meridian.setText("am");
         }
     }//GEN-LAST:event_meridianActionPerformed
@@ -356,12 +353,12 @@ public class AddTimeTable extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new AddTimeTable().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
     private javax.swing.JComboBox<String> branch;

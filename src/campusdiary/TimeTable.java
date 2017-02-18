@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
- /*
+/*
  * TimeTable.java
  *
  * Created on Nov 27, 2016, 8:55:13 PM
@@ -34,25 +34,25 @@ public class TimeTable extends javax.swing.JFrame {
         loadSubject();
         loadbranch();
     }
-    
-    private void clearText(){
+
+    private void clearText() {
         code.setText("");
     }
-    private void loadbranch()
-    {
+
+    private void loadbranch() {
         try {
-            String sql="select * from tbl_branches" ;
+            String sql = "select * from tbl_branches";
             Dbcon db = new Dbcon();
-            ResultSet rs=db.select(sql);
+            ResultSet rs = db.select(sql);
             while (rs.next()) {
-                String br= rs.getString(2);
+                String br = rs.getString(2);
                 branch.addItem(br);
 
             }
         } catch (SQLException ex) {
             Logger.getLogger(AddSylabus.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
 
     private void loadSubject() {
@@ -274,8 +274,6 @@ private void subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:eve
 }//GEN-LAST:event_subActionPerformed
 
 private void semActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semActionPerformed
-
-
 }//GEN-LAST:event_semActionPerformed
 
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -289,16 +287,16 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     String time = time1 + ":" + time2 + ":" + amm;
     String subcode = sub.getSelectedItem().toString();
     String subname1 = subname.getText();
-    int t=sem.getSelectedIndex();
+    int t = sem.getSelectedIndex();
     if (rev.equals("")
             || date1.getDate() == null
             || time.equals("")
-            ||t==0) {
+            || t == 0) {
         JOptionPane.showMessageDialog(this, "enter the values");
     } else {
         Dbcon db = new Dbcon();
         long milli = date1.getDate().getTime();
-        String sql = "insert into tbl_time_table(revision_code,branch,semester,subject_code,subject_name,date,time)values('" + rev + "','" + branchname + "','" + semester + "','" + subcode + "','" + subname1 + "','" + date + "','" + time + "')";
+        String sql = "insert into tbl_time_table(revision_code,branch,semester,subject_code,subject_name,date,time, date_milli)values('" + rev + "','" + branchname + "','" + semester + "','" + subcode + "','" + subname1 + "','" + date + "','" + time + "', '" + milli + "')";
         int rs = db.insert(sql);
         if (rs > 0) {
             JOptionPane.showMessageDialog(this, "successfully inserted");
@@ -323,19 +321,19 @@ private void amActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:even
 
 private void subItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_subItemStateChanged
 
-    String item = sub.getSelectedItem().toString();
-    String sql = "select subject_name from tbl_subjects where subject_code='" + item + "'";
-    Dbcon db = new Dbcon();
-    ResultSet rs = db.select(sql);
-    try {
-        if (rs.next()) {
-            String name = rs.getString(1);
-            subname.setText(name);
+        String item = sub.getSelectedItem().toString();
+        String sql = "select subject_name from tbl_subjects where subject_code='" + item + "'";
+        Dbcon db = new Dbcon();
+        ResultSet rs = db.select(sql);
+        try {
+            if (rs.next()) {
+                String name = rs.getString(1);
+                subname.setText(name);
 
+            }
+        } catch (Exception e) {
         }
-    } catch (Exception e) {
-    }
-    // TODO add your handling code here:
+        // TODO add your handling code here:
 }//GEN-LAST:event_subItemStateChanged
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
