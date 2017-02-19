@@ -41,7 +41,7 @@ public class ViewStudents extends javax.swing.JFrame {
             String sql = "select *from tbl_student";
             ResultSet rs = db.select(sql);
             mode1 = (DefaultTableModel) viewStudent.getModel();
-            String arr[] = new String[11];
+            String arr[] = new String[12];
             while (rs.next()) {
              String id = rs.getString("id") ;
              String na = rs.getString("name") ;
@@ -54,6 +54,7 @@ public class ViewStudents extends javax.swing.JFrame {
              String pd = rs.getString("password") ;
              String br = rs.getString("branch"); 
              String adm = rs.getString("admission_date"); 
+             String um =rs.getString("union_member");
              
               arr[0]=id;
               arr[1]=na;
@@ -66,6 +67,7 @@ public class ViewStudents extends javax.swing.JFrame {
               arr[8]=pd;
               arr[9]=br;
               arr[10]=adm;
+              arr[11]=um;
               mode1.addRow(arr);
 
 
@@ -118,11 +120,11 @@ public class ViewStudents extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Name", "Address", "DOB", "Gender", "GuardianName", "PhNo", "Email", "Password", "Branch", "admissionDate"
+                "id", "Name", "Address", "DOB", "Gender", "GuardianName", "PhNo", "Email", "Password", "Branch", "AdmissionDate", "UnionMember"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -165,24 +167,24 @@ public class ViewStudents extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(261, 261, 261)
                         .addComponent(back2)
-                        .addGap(64, 64, 64)
+                        .addGap(93, 93, 93)
                         .addComponent(updatebutton)
-                        .addGap(29, 29, 29)
+                        .addGap(103, 103, 103)
                         .addComponent(deletebutton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(271, 271, 271)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(390, 390, 390)
                     .addComponent(back)
-                    .addContainerGap(390, Short.MAX_VALUE)))
+                    .addContainerGap(447, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +194,10 @@ public class ViewStudents extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(back2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(updatebutton)
-                        .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updatebutton)
+                    .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(back2))
                 .addGap(30, 30, 30))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
