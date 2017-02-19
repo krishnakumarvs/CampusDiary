@@ -7,6 +7,10 @@ package staff;
 
 import campusdiary.Branches;
 import db.Dbcon;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -14,13 +18,20 @@ import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author HP
  */
 public class AddStudent extends javax.swing.JFrame {
+
+    File selectedFile = null;
 
     /**
      * Creates new form AddStudent
@@ -212,6 +223,11 @@ public class AddStudent extends javax.swing.JFrame {
         photo_label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setText("choose");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,12 +240,8 @@ public class AddStudent extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,9 +261,7 @@ public class AddStudent extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                                 .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(46, 46, 46))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -262,27 +272,25 @@ public class AddStudent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(female)
-                                .addGap(28, 28, 28)
-                                .addComponent(male))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
-                                .addGap(18, 22, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(semester_combo, 0, 159, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(female)
+                            .addGap(28, 28, 28)
+                            .addComponent(male))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
+                            .addGap(18, 22, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(semester_combo, 0, 159, Short.MAX_VALUE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
@@ -396,7 +404,12 @@ public class AddStudent extends javax.swing.JFrame {
             String ag = dob.getDate().toString();
             String semester = semester_combo.getSelectedItem() + "".trim();
             String collegeName = StaffLogin.collegeName;
-            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '"+StaffLogin.collegeId+"');";
+
+            if (selectedFile != null) {
+//                File copyToFile = new File("")
+//                FileUtils.copyFile(selectedFile, );
+            }
+            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '" + StaffLogin.collegeId + "');";
 
             System.out.println(sql);
 
@@ -439,6 +452,45 @@ public class AddStudent extends javax.swing.JFrame {
     private void emailInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_emailInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_emailInputMethodTextChanged
+
+    private void copyFile() {
+//        String masterKeyBackUpLocation = Configuration.masterPoolLocation + masterKeyBackUpName;
+//            
+//            try {
+//                FileUtils.copyFile(chooser.getSelectedFile(), new File(masterKeyBackUpLocation));
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            System.out.println("You chose to open this file: "
+//                    + path);
+    }
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    JFileChooser chooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "JPG & GIF Images", "jpg", "gif");
+    chooser.setFileFilter(filter);
+    int returnVal = chooser.showOpenDialog(this);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+        selectedFile = chooser.getSelectedFile();
+        String path = chooser.getSelectedFile().getPath();
+
+//            String masterKeyBackUpName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(chooser.getSelectedFile().getPath());
+
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(path));
+            Image scaledInstance = img.getScaledInstance(photo_label.getWidth(), photo_label.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon imageIcon = new ImageIcon(scaledInstance);
+            photo_label.setIcon(imageIcon);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // TODO add your handling code here:
+}//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
