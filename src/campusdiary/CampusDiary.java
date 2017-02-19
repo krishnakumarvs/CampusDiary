@@ -14,7 +14,7 @@ public class CampusDiary {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Login s = new Login();
+        CampusStart s = new CampusStart();
         s.setVisible(true);
     }
 }
