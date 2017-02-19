@@ -53,10 +53,10 @@ public class UpdateStudent extends javax.swing.JFrame {
                 admission.setText(rs.getString("id"));
                 name.setText(rs.getString("name"));
                 address.setText(rs.getString("address"));
-                if (rs.getString("gender").equals("male")) {
-                    buttonGroup1.setSelected(male.getModel(), true);
+                if (rs.getString("union_member").equals("No")) {
+                    buttonGroup1.setSelected(no.getModel(), true);
                 } else {
-                    buttonGroup1.setSelected(female.getModel(), true);
+                    buttonGroup1.setSelected(yes.getModel(), true);
                 }
                 guardian.setText(rs.getString("guardian_name"));
                 phone.setText(rs.getString("phone_no"));
@@ -67,9 +67,6 @@ public class UpdateStudent extends javax.swing.JFrame {
            Date ndate=new Date(milli1);
            dob.setDate(ndate);
                 
-           long milli2=Long.parseLong(rs.getString("admdate_milli"));
-           Date nedate=new Date(milli2);
-           admdate.setDate(ndate);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UpdateStudent.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,8 +97,8 @@ public class UpdateStudent extends javax.swing.JFrame {
         address = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
-        female = new javax.swing.JRadioButton();
-        male = new javax.swing.JRadioButton();
+        yes = new javax.swing.JRadioButton();
+        no = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -111,9 +108,7 @@ public class UpdateStudent extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         dob = new org.jdesktop.swingx.JXDatePicker();
-        admdate = new org.jdesktop.swingx.JXDatePicker();
         branch = new javax.swing.JComboBox<>();
 
         jTextField3.setText("jTextField1");
@@ -145,7 +140,7 @@ public class UpdateStudent extends javax.swing.JFrame {
         address.setRows(5);
         jScrollPane1.setViewportView(address);
 
-        jLabel7.setText("Gender");
+        jLabel7.setText("Union Member");
 
         submit.setText("Update");
         submit.addActionListener(new java.awt.event.ActionListener() {
@@ -154,11 +149,21 @@ public class UpdateStudent extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(female);
-        female.setText("Female");
+        buttonGroup1.add(yes);
+        yes.setText("Yes");
+        yes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yesActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(male);
-        male.setText("Male");
+        buttonGroup1.add(no);
+        no.setText("No");
+        no.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Guardian Name");
 
@@ -195,8 +200,6 @@ public class UpdateStudent extends javax.swing.JFrame {
 
         jLabel6.setText("DOB ");
 
-        jLabel11.setText("Admission  date");
-
         dob.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -216,9 +219,13 @@ public class UpdateStudent extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,8 +236,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
@@ -239,18 +245,12 @@ public class UpdateStudent extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                             .addComponent(phone, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(female, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(yes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(male))
+                                .addComponent(no))
                             .addComponent(guardian, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                             .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(admdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(branch, 0, 215, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(branch, 0, 215, Short.MAX_VALUE))))
                 .addContainerGap(92, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
@@ -281,8 +281,8 @@ public class UpdateStudent extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(female)
-                            .addComponent(male)))
+                            .addComponent(yes)
+                            .addComponent(no)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -300,18 +300,11 @@ public class UpdateStudent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(admdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(submit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(62, 62, 62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
         );
 
         pack();
@@ -352,24 +345,22 @@ public class UpdateStudent extends javax.swing.JFrame {
         String na = name.getText();
         String ad = address.getText();
         String ag = dob.getDate().toString();
-        String gen = "";
-        if (female.isSelected()) {
-            gen = "female";
+        String union = "";
+        if (yes.isSelected()) {
+            union = "yes";
         } else {
-            gen = "male";
+            union = "no";
         }
         String gur = guardian.getText();
         String ph = phone.getText();
         String em = email.getText();
         String br = branch.getSelectedItem().toString();
-        String adm = admdate.getDate().toString();
-        Date f=admdate.getDate();
         Date d=dob.getDate();
-        if(an.equals("")||na.equals("")||ad.equals("")||d==null||gen.equals("")||gur.equals("")||ph.equals("")||em.equals("")||f==null){
+        if(an.equals("")||na.equals("")||ad.equals("")||d==null||union.equals("")||gur.equals("")||ph.equals("")||em.equals("")){
             JOptionPane.showMessageDialog(this,"please enter the values");
         }else{
         Dbcon db = new Dbcon();
-        String sql = "update tbl_student set name='"+na+"',address='"+ad+"',dob='"+ag+"',gender='"+gen+"',guardian_name='"+gur+"',phone_no='"+ph+"',email='"+em+"',branch ='"+br+"',admission_date ='"+adm+"' where id='"+an+"'";
+        String sql = "update tbl_student set name='"+na+"',address='"+ad+"',dob='"+ag+"',union_member='"+union+"',guardian_name='"+gur+"',phone_no='"+ph+"',email='"+em+"',branch ='"+br+"' where id='"+an+"'";
         System.out.println(sql);
 
         int ins = db.insert(sql);
@@ -396,6 +387,14 @@ public class UpdateStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_branchActionPerformed
+
+    private void yesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yesActionPerformed
+
+    private void noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,18 +434,15 @@ public class UpdateStudent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea address;
-    private org.jdesktop.swingx.JXDatePicker admdate;
     private javax.swing.JTextField admission;
     private javax.swing.JButton back;
     private javax.swing.JComboBox<String> branch;
     private javax.swing.ButtonGroup buttonGroup1;
     private org.jdesktop.swingx.JXDatePicker dob;
     private javax.swing.JTextField email;
-    private javax.swing.JRadioButton female;
     private javax.swing.JTextField guardian;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -457,9 +453,10 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JRadioButton male;
     private javax.swing.JTextField name;
+    private javax.swing.JRadioButton no;
     private javax.swing.JTextField phone;
     private javax.swing.JButton submit;
+    private javax.swing.JRadioButton yes;
     // End of variables declaration//GEN-END:variables
 }
