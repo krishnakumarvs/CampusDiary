@@ -6,6 +6,7 @@
 package staff;
 
 import campusdiary.Branches;
+import db.Constants;
 import db.Dbcon;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -24,6 +25,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  *
@@ -405,11 +407,17 @@ public class AddStudent extends javax.swing.JFrame {
             String semester = semester_combo.getSelectedItem() + "".trim();
             String collegeName = StaffLogin.collegeName;
 
+            String imageName = "";
             if (selectedFile != null) {
-//                File copyToFile = new File("")
-//                FileUtils.copyFile(selectedFile, );
+                imageName = System.currentTimeMillis() + "." + FilenameUtils.getExtension(selectedFile.getName());
+                File copyToFile = new File(Constants.external_file_location + imageName);
+                try {
+                    FileUtils.copyFile(selectedFile, copyToFile);
+                } catch (IOException e) {
+                    imageName = "";
+                }
             }
-            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '" + StaffLogin.collegeId + "');";
+            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id,photo)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '" + StaffLogin.collegeId + "','" + imageName + "');";
 
             System.out.println(sql);
 

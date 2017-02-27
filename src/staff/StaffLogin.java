@@ -52,6 +52,8 @@ public class StaffLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
+        username.setText("jobinjoseph@gmail.com");
+
         jLabel3.setText("Log In");
 
         login.setText("LogIn");
@@ -60,6 +62,8 @@ public class StaffLogin extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
+
+        password.setText("123");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +74,7 @@ public class StaffLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(username)
                     .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))

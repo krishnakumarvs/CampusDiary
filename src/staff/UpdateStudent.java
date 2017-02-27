@@ -54,10 +54,10 @@ public class UpdateStudent extends javax.swing.JFrame {
                 admission.setText(rs.getString("id"));
                 name.setText(rs.getString("name"));
                 address.setText(rs.getString("address"));
-                if (rs.getString("union_member").equals("No")) {
-                    buttonGroup1.setSelected(no.getModel(), true);
+                if (rs.getString("union_member").equals("true")) {
+                    yes.setSelected(true);
                 } else {
-                    buttonGroup1.setSelected(yes.getModel(), true);
+                    no.setSelected(true);
                 }
                 guardian.setText(rs.getString("guardian_name"));
                 phone.setText(rs.getString("phone_no"));
@@ -411,9 +411,9 @@ public class UpdateStudent extends javax.swing.JFrame {
         String ag = dob.getDate().toString();
         String union = "";
         if (yes.isSelected()) {
-            union = "yes";
+            union = "true";
         } else {
-            union = "no";
+            union = "false";
         }
         String gur = guardian.getText();
         String ph = phone.getText();
