@@ -57,6 +57,7 @@ public class AdminHome extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -188,6 +189,15 @@ public class AdminHome extends javax.swing.JFrame {
         jMenuBar1.add(view);
 
         logout.setText("Logout");
+
+        jMenuItem15.setText("Logout");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        logout.add(jMenuItem15);
+
         jMenuBar1.add(logout);
 
         setJMenuBar(jMenuBar1);
@@ -304,6 +314,13 @@ private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     // TODO add your handling code here:
 }//GEN-LAST:event_jMenuItem14ActionPerformed
 
+private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+
+    this.dispose();
+    new CampusStart().setVisible(true);
+    // TODO add your handling code here:
+}//GEN-LAST:event_jMenuItem15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +367,7 @@ private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

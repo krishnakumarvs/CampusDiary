@@ -96,7 +96,6 @@ public class ViewStudents extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         viewStudent = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        back = new javax.swing.JButton();
         back2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,21 +136,12 @@ public class ViewStudents extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(viewStudent);
-        if (viewStudent.getColumnModel().getColumnCount() > 0) {
-            viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
-            viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
-            viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
+        viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
+        viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
+        viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36));
         jLabel1.setText("VIEW STUDENT");
-
-        back.setText("Back");
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
 
         back2.setText("BACK");
         back2.addActionListener(new java.awt.event.ActionListener() {
@@ -180,11 +170,6 @@ public class ViewStudents extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(390, 390, 390)
-                    .addComponent(back)
-                    .addContainerGap(447, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,11 +184,6 @@ public class ViewStudents extends javax.swing.JFrame {
                     .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(back2))
                 .addGap(30, 30, 30))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(175, 175, 175)
-                    .addComponent(back)
-                    .addContainerGap(199, Short.MAX_VALUE)))
         );
 
         pack();
@@ -245,12 +225,6 @@ private void viewStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST
     }
     // TODO add your handling code here:
 }//GEN-LAST:event_viewStudentMouseClicked
-
-private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        StaffHomePage hp = new StaffHomePage();
-        hp.setVisible(true);
-        this.dispose();        // TODO add your handling code here:
-}//GEN-LAST:event_backActionPerformed
 
 private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back2ActionPerformed
         StaffHomePage hp = new StaffHomePage();
@@ -294,7 +268,6 @@ private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back;
     private javax.swing.JButton back2;
     private javax.swing.JButton deletebutton;
     private javax.swing.JLabel jLabel1;

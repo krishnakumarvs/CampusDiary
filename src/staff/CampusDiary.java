@@ -4,6 +4,8 @@
  */
 package staff;
 
+import campusdiary.CampusStart;
+
 /**
  *
  * @author kakes
@@ -14,6 +16,7 @@ public class CampusDiary {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CampusStart s = new CampusStart();
+        s.setVisible(true);
     }
 }

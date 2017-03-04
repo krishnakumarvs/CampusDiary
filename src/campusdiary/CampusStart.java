@@ -18,6 +18,7 @@ public class CampusStart extends javax.swing.JFrame {
      */
     public CampusStart() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
