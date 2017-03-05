@@ -245,7 +245,7 @@ public class StaffHomePage extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 
-        ViewCollegeProfile college=new ViewCollegeProfile();
+        UpdateCollegeProfile college=new UpdateCollegeProfile(StaffLogin.collegeId);
         college.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
