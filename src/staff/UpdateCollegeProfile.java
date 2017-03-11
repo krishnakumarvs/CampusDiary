@@ -26,15 +26,21 @@ public UpdateCollegeProfile(String id) {
         this.setLocationRelativeTo(null);
         try {
         Dbcon db=new Dbcon();
-        String sql="select * from tbl_colleges where id='"+id+"'";
+        String sql1="select college_name from tbl_login where id='"+id+"'";
+        ResultSet rs1=db.select(sql1);
+        System.out.println(sql1);
+        if(rs1.next()){
+            String colname=rs1.getString(1);
+        String sql="select * from tbl_colleges where name='"+colname+"'";
         ResultSet rs=db.select(sql);
         System.out.println(sql);
         if(rs.next()){
-            collegeid.setText(rs.getString(1));
-            college.setText(rs.getString(2));
-            phone.setText(rs.getString(5));
-            mail.setText(rs.getString(6));
-            site.setText(rs.getString(7));
+            collegeid.setText(rs.getString("id"));
+            college.setText(rs.getString("name"));
+            phone.setText(rs.getString("contact_no"));
+            mail.setText(rs.getString("email"));
+            site.setText(rs.getString("web_site"));
+        }
         }
     } catch (Exception e) {
             JOptionPane.showMessageDialog(this,"error in listing");
@@ -240,9 +246,10 @@ public UpdateCollegeProfile(String id) {
             int rs=db.update(sql);
             if(rs>0){
                 JOptionPane.showMessageDialog(this,"successfully updated");
-                ViewCollegeProfile college=new ViewCollegeProfile();
-                college.setVisible(true);
-                this.dispose();
+                       StaffHomePage staffhome = new StaffHomePage();
+                        staffhome.setVisible(true);
+                        this.dispose();        // TODO add your handling code here:
+
             }else{
                 JOptionPane.showMessageDialog(this,"updation failed");
             }
@@ -250,9 +257,10 @@ public UpdateCollegeProfile(String id) {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ViewCollegeProfile college=new ViewCollegeProfile();
-        college.setVisible(true);
-        this.dispose();
+       StaffHomePage staffhome = new StaffHomePage();
+        staffhome.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
