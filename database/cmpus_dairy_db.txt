@@ -47,7 +47,7 @@ CREATE TABLE `tbl_colleges` (
 
 /*Data for the table `tbl_colleges` */
 
-insert  into `tbl_colleges`(`id`,`name`,`location`,`branches`,`contact_no`,`email`,`web_site`,`password`) values (2,'Govt.Womens Polytechnic College Ernakulam','Ernakulam','computer,electronics,','568845657','hfhhj@khkjk','www.fuhggjh.uyhu','FVUlEXiW'),(3,'Govt>polytechnic College,kalamassery','ernakulam','Mechanical Engineering,Electronics and Communication Engineering,','5789798','poly@technicalcell','www.polyjgjgj.cibh','UoSYt265'),(5,'Govt.Model Engineering College ','Ernakulam,kerala','Mechanical Engineering,Automobile Engineering,Commercial Practice,Electronics,','8888888888','modelengineering@gmail.com','www.modelengineering.com','SwBZjybI'),(6,'Govt.polytechnic College,Cherthalla','cherthalla,Alapuzha','Mechanical Engineering,Electronics and Communication Engineering,Electronics,Commercial Practice,Automobile Engineering,','44444444','ggfh@jhgjh','www.gdfhfh.com','iBfr6pBL');
+insert  into `tbl_colleges`(`id`,`name`,`location`,`branches`,`contact_no`,`email`,`web_site`,`password`) values (2,'Govt.Womens Polytechnic College Ernakulam','Ernakulam','computer,electronics,','568845657','hfhhj@khkjk','www.fuhggjh.uyhu','FVUlEXiW'),(3,'Govt>polytechnic College,kalamassery','ernakulam','Mechanical Engineering,Electronics and Communication Engineering,','5789798','poly@technicalcell','www.polyjgjgj.cibh','UoSYt265'),(5,'Govt.Model Engineering College ','Ernakulam,kerala','Mechanical Engineering,Automobile Engineering,Electronics,Commercial Practice,','8888888888','modelengineering@gmail.com','www.modelengineering.com','SwBZjybI'),(6,'Govt.polytechnic College,Cherthalla','cherthalla,Alapuzha','Mechanical Engineering,Electronics and Communication Engineering,Electronics,Commercial Practice,Automobile Engineering,','44444444','ggfh@jhgjh','www.gdfhfh.com','iBfr6pBL');
 
 /*Table structure for table `tbl_feedback` */
 
@@ -62,11 +62,11 @@ CREATE TABLE `tbl_feedback` (
   `description` varchar(100) DEFAULT NULL,
   `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_feedback` */
 
-insert  into `tbl_feedback`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (1,'17','4','I need more space!','1487429686620',NULL,4),(2,'17','4','good','1487429727325',NULL,4),(3,'17','4','yeahhh','1487429731950',NULL,4),(4,'17','4','Badddddddddfff','1487497947632',NULL,4),(5,'17','4','Heloooo','1487497999712',NULL,4),(6,'17','4','sdsdsdsds','1488213816048',NULL,4);
+insert  into `tbl_feedback`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (1,'17','4','I need more space!','1487429686620',NULL,4),(2,'17','4','good','1487429727325',NULL,4),(3,'17','4','yeahhh','1487429731950',NULL,4),(4,'17','4','Badddddddddfff','1487497947632',NULL,4),(5,'17','4','Heloooo','1487497999712',NULL,4);
 
 /*Table structure for table `tbl_login` */
 
@@ -79,12 +79,13 @@ CREATE TABLE `tbl_login` (
   `usertype` varchar(20) NOT NULL,
   `college_name` varchar(200) DEFAULT NULL,
   `email_id` varchar(200) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_login` */
 
-insert  into `tbl_login`(`id`,`username`,`password`,`usertype`,`college_name`,`email_id`) values (1,'amrutha','amrutha','',NULL,NULL),(2,'divya','divya','',NULL,NULL),(3,'anu','anu','',NULL,NULL),(4,'jobin joseph','123','staff','Govt.Model Engineering College ','jobinjoseph@gmail.com');
+insert  into `tbl_login`(`id`,`username`,`password`,`usertype`,`college_name`,`email_id`,`college_id`) values (1,'amrutha','amrutha','',NULL,NULL,NULL),(2,'divya','divya','',NULL,NULL,NULL),(3,'anu','anu','',NULL,NULL,NULL),(4,'jobin joseph','123','staff','Govt.Model Engineering College ','jobinjoseph@gmail.com',5),(5,'anitha','234','staff','Govt.polytechnic College,Cherthalla','anitha@gmail.com',6),(6,'ammu','aflsm','staff','Govt.Womens Polytechnic College Ernakulam','ammu@gmail.com',2);
 
 /*Table structure for table `tbl_news` */
 
@@ -101,11 +102,11 @@ CREATE TABLE `tbl_news` (
   `date_milli` varchar(100) DEFAULT NULL,
   `pic` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_news` */
 
-insert  into `tbl_news`(`id`,`title`,`description`,`photos`,`owner_id`,`owner_type`,`audience`,`date_milli`,`pic`) values (2,'lllllllllll','DDDDD',NULL,17,'student','All','1487525387810',NULL),(3,'smal title','big message',NULL,17,'student','4','1487525438313',NULL),(12,'no class tomorrow','Yes, therere wont be class tomorrow.\nIts done\nOver',NULL,17,'student','All','1487699113017','1487699112947.jpg'),(13,'new teacher','sdsds',NULL,17,'student','All','1487699712215','1487699712174.jpg'),(14,'Kk is on','Yea\nVery much now\nHe is ready',NULL,17,'student','All','1487699889513','1487699886346.jpg'),(15,'Haha','Irs almost ready<br> second line',NULL,17,'student','All','1487700172357','1487700165994.JPG'),(16,'at college','bomb blast',NULL,17,'student','All','1488213896894','1488213896775.JPG');
+insert  into `tbl_news`(`id`,`title`,`description`,`photos`,`owner_id`,`owner_type`,`audience`,`date_milli`,`pic`) values (2,'lllllllllll','DDDDD',NULL,17,'student','All','1487525387810',NULL),(3,'smal title','big message',NULL,17,'student','4','1487525438313',NULL),(12,'no class tomorrow','Yes, therere wont be class tomorrow.\nIts done\nOver',NULL,17,'student','All','1487699113017','1487699112947.jpg'),(13,'new teacher','sdsds',NULL,17,'student','All','1487699712215','1487699712174.jpg'),(14,'Kk is on','Yea\nVery much now\nHe is ready',NULL,17,'student','All','1487699889513','1487699886346.jpg'),(15,'Haha','Irs almost ready<br> second line',NULL,17,'student','All','1487700172357','1487700165994.JPG'),(16,'at college','bomb blast',NULL,17,'student','All','1488213896894','1488213896775.JPG'),(17,'godd post','gooooooooooooooood baaaaaaaaaaaaad',NULL,17,'student','All','1488608076180','1488608075923.jpg');
 
 /*Table structure for table `tbl_notifications` */
 
@@ -120,11 +121,11 @@ CREATE TABLE `tbl_notifications` (
   `description` varchar(500) DEFAULT NULL,
   `college_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_notifications` */
 
-insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (4,'admin','student only','fee payment','2016-12-26','ggjghjjh',101),(6,'admin','staff only','arts day celebration','2016-12-27','inuguationhhik',NULL),(7,'admin','student only','union sddsd','2016-12-28','tehre are SOME important message which IS TO be conveyed only AT the prescense of dignitories AND famous persons',NULL),(11,'STAFF','student only','ljsljsl','2016-12-31','bknnnnnnn',101),(12,'ADMIN','all','Poly day','2016-12-31','celebration',NULL),(13,'ADMIN','student only','gg','2017-02-12','bn',NULL),(14,'STAFF','staff only','dsds','2017-02-12','fdgfg',101);
+insert  into `tbl_notifications`(`id`,`owner`,`audience`,`title`,`date`,`description`,`college_id`) values (4,'admin','student only','fee payment','2016-12-26','ggjghjjh',101),(6,'admin','student only','arts day celebration','2017-03-11','inuguationhhik',NULL),(7,'admin','student only','union sddsd','2016-12-28','tehre are SOME important message which IS TO be conveyed only AT the prescense of dignitories AND famous persons',NULL),(12,'ADMIN','all','Poly day','2016-12-31','celebration',NULL),(13,'ADMIN','student only','gg','2017-02-12','bn',NULL),(14,'STAFF','staff only','dsds','2017-02-12','fdgfg',101),(15,'ADMIN','student only','inuguration','2017-03-11','ddsdsdc',NULL);
 
 /*Table structure for table `tbl_series_time_table` */
 
@@ -142,11 +143,11 @@ CREATE TABLE `tbl_series_time_table` (
   `college_id` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_series_time_table` */
 
-insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`date_milli`,`college_id`) values (15,'computer engineering','semester 2','5670','Microprocessor','Mon Feb 27 00:00:00 IST 2017','2:0:am','1488133800000','4'),(16,'computer engineering','semester 2','3998','embedded system','Tue Feb 28 00:00:00 IST 2017','3:0:am','1488220200000','4');
+insert  into `tbl_series_time_table`(`id`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`date_milli`,`college_id`) values (15,'Mechanical Engineering','semester 2','5670','Microprocessor','Mon Feb 27 00:00:00 IST 2017','2:0:am','1488133800000','4'),(16,'computer engineering','semester 2','3998','embedded system','Tue Feb 28 00:00:00 IST 2017','3:0:am','1488220200000','4'),(17,'chemical engineering','semester 4','1212','DigitalComputerPrinciples','Tue Mar 14 00:00:00 IST 2017','10:0:am','1489429800000','6');
 
 /*Table structure for table `tbl_student` */
 
@@ -173,11 +174,11 @@ CREATE TABLE `tbl_student` (
   `union_member` varchar(20) DEFAULT 'false',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_student` */
 
-insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`,`dob_milli`,`admdate_milli`,`college`,`semester`,`college_id`,`photo`,`union_member`) values (15,'fjhjhj','jgj','Wed Oct 13 00:00:00 IST 1999','female','ihio','567898765','hgg@gjgj','13101999','Commercial Practice','Wed Oct 13 00:00:00 IST 1999','939753000000','1483036200000','womens ploi',NULL,'4',NULL,'false'),(16,'akhila thomas pp','kaloor\nkochi','Mon Dec 07 00:00:00 IST 1998','female','dhh','123123123','akhila@gmail.com','7121998','computer engineering','Mon Dec 07 00:00:00 IST 1998','912969000000','1487010600000','womens ploi',NULL,'4',NULL,'false'),(17,'krishna kumar','sarithas\nazad road\nkaloor	','Tue Feb 07 00:00:00 IST 2017','male','suresh','9995671735','krishjh_mea@yahoo.imn','722017','computer engineering','Tue Dec 06 00:00:00 IST 2016','1486405800000','1480962600000','Govt.Model Engineering College ','semester 2','4','1487512255134.jpg','true'),(18,'Rahul','chavakad\nthrissur\nKerala','Wed Feb 01 00:00:00 IST 2017','female','dsds','5665656565','rahul@gmail.com','122017','chemical engineering','Wed Jan 04 00:00:00 IST 2017','1485887400000','1483468200000','Govt.Model Engineering College ','semester 1','4',NULL,'false'),(19,'sfsdf','dsfsdf','Wed Feb 01 00:00:00 IST 2017','female','sdfsdfsdf','343434343','sfd','122017','Electronics','Wed Feb 01 00:00:00 IST 2017','1485887400000','1485887400000','Govt.Model Engineering College ','semester 5','4',NULL,'false'),(20,'ramanan','asdasd\nasdasd','Tue Feb 07 00:00:00 IST 2017','male','asdasdasd','3434343434','dfdfs','722017','Commercial Practice','Wed Feb 01 00:00:00 IST 2017','1486405800000','1485887400000','Govt.Model Engineering College ','semester 3','4','1487512255134.jpg','false');
+insert  into `tbl_student`(`id`,`name`,`address`,`dob`,`gender`,`guardian_name`,`phone_no`,`email`,`password`,`branch`,`admission_date`,`dob_milli`,`admdate_milli`,`college`,`semester`,`college_id`,`photo`,`union_member`) values (17,'krishna kumar','sarithas\nazad road\nkaloor','Tue Feb 07 00:00:00 IST 2017','male','suresh','9995671735','k@k.com','123','computer engineering','Tue Dec 06 00:00:00 IST 2016','1486405800000','1480962600000','Govt.Model Engineering College ','semester 2','4','1488612813525.jpg','true'),(18,'Rahul','chavakad\nthrissur\nKerala','Wed Feb 01 00:00:00 IST 2017','female','dsds','5665656565','rahul@gmail.com','122017','chemical engineering','Wed Jan 04 00:00:00 IST 2017','1485887400000','1483468200000','Govt.Model Engineering College ','semester 1','4','','false'),(19,'sfsdf','dsfsdf','Wed Feb 01 00:00:00 IST 2017','female','sdfsdfsdf','343434343','sfd','122017','Electronics','Wed Feb 01 00:00:00 IST 2017','1485887400000','1485887400000','Govt.Model Engineering College ','semester 5','4','1488612838515.jpg','false'),(20,'ramanan','asdasd\nasdasd','Tue Feb 07 00:00:00 IST 2017','male','asdasdasd','3434343434','dfdfs','722017','Commercial Practice','Wed Feb 01 00:00:00 IST 2017','1486405800000','1485887400000','Govt.Model Engineering College ','semester 3','4','1487512255134.jpg','false'),(21,'ann','ekm','Sun Mar 05 00:00:00 IST 2017','female','asss','3435565667','ann@gmail.com','345','Commercial Practice','Mon Mar 27 00:00:00 IST 2017','1488652200000','1490553000000','Govt.Model Engineering College ','semester 5','5','','false');
 
 /*Table structure for table `tbl_subjects` */
 
@@ -188,11 +189,11 @@ CREATE TABLE `tbl_subjects` (
   `subject_code` varchar(10) NOT NULL,
   `subject_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_subjects` */
 
-insert  into `tbl_subjects`(`id`,`subject_code`,`subject_name`) values (3,'5670','Microprocessor'),(4,'3008','Advanced c'),(5,'3998','embedded system'),(6,'1212','DigitalComputerPrinciples'),(7,'1213','Industrial management and safety'),(8,'6667','software engineering');
+insert  into `tbl_subjects`(`id`,`subject_code`,`subject_name`) values (3,'5670','Microprocessor'),(4,'3008','Advanced c'),(5,'3998','embedded system'),(6,'1212','DigitalComputerPrinciples'),(7,'1213','Industrial management and safety'),(8,'6667','software engineering'),(9,'2099','Network programming');
 
 /*Table structure for table `tbl_sylabus` */
 
@@ -211,11 +212,11 @@ CREATE TABLE `tbl_sylabus` (
   `module_4` varchar(50) DEFAULT NULL,
   `reference` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_sylabus` */
 
-insert  into `tbl_sylabus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (2,'2010','computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,'2015','Automobile Engineering','semester 5','1212','DigitalComputerPrinciples','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	'),(5,'4444','Chemical Engineering','semster 2','4031','Operating System','ghghj','jbjj','cvbbn','vvgvgvg','vhjjh'),(6,'677','Mechanical Engineering','semester 1','4026','Computer Architecture','fuhihi','guhi','fuhuu','hjh','yfuhj'),(7,'11110','Mechanical Engineering','semester 1','5670','Microprocessor','nnn','nnnn','nnnn','nnn','qwqw'),(8,'3009','chemical engineering','semester 6','1212','DigitalComputerPrinciples','guagusgaudgadgagdagdjvjhxbcx','rututququwuqtu','sajghsjasgajgsajsg','adadsfrtrtytbc','gkjjo'),(9,'676','computer engineering','semester 3','1212','DigitalComputerPrinciples','bvbbbbbbbbbbbbbbbbbbb','nnnnnnnnnnnnnn','vbbvnbvn','vjnbjj','www');
+insert  into `tbl_sylabus`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`module_1`,`module_2`,`module_3`,`module_4`,`reference`) values (2,'2010','computer','semester 4','4031','Operating System','emotional stress','life style','thoretical studies','programming status','chcbhyewahcdicxhnxkjzJ	'),(3,'2015','Automobile Engineering','semester 5','1212','DigitalComputerPrinciples','kkakak kuuua','JUMAAANJII','jshhxhh','hsudhsahbsx','chcbhyewahcdicxhnxkjzJ	'),(5,'4444','Mechanical Engineering','semster 2','5670','Microprocessor','ghghj','jbjj','cvbbn','vvgvgvg','vhjjh'),(6,'677','Mechanical Engineering','semester 1','4026','Computer Architecture','fuhihi','guhi','fuhuu','hjh','yfuhj'),(7,'11110','Mechanical Engineering','semester 1','5670','Microprocessor','nnn','nnnn','nnnn','nnn','qwqw'),(8,'3009','chemical engineering','semester 6','1212','DigitalComputerPrinciples','guagusgaudgadgagdagdjvjhxbcx','rututququwuqtu','sajghsjasgajgsajsg','adadsfrtrtytbc','gkjjo'),(9,'676','computer engineering','semester 3','1212','DigitalComputerPrinciples','bvbbbbbbbbbbbbbbbbbbb','nnnnnnnnnnnnnn','vbbvnbvn','vjnbjj','www');
 
 /*Table structure for table `tbl_time_table` */
 
@@ -233,11 +234,11 @@ CREATE TABLE `tbl_time_table` (
   `master_id` int(11) DEFAULT NULL,
   `date_milli` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_time_table` */
 
-insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`,`date_milli`) values (8,676,'chemical engineering','semester 3','6667','software engineering','Thu Feb 09 00:00:00 IST 2017','10:0:am',NULL,'1486578600000'),(12,34343,'computer engineering','semester 2','5670','Microprocessor','Mon Feb 20 00:00:00 IST 2017','2:0:pm',NULL,'1487529000000'),(13,234535,'computer engineering','semester 2','3998','embedded system','Wed Feb 22 00:00:00 IST 2017','2:0:pm',NULL,'1487701800000'),(14,34535,'computer engineering','semester 2','1213','Industrial management and safety','Fri Feb 24 00:00:00 IST 2017','3:0:pm',NULL,'1487874600000');
+insert  into `tbl_time_table`(`id`,`revision_code`,`branch`,`semester`,`subject_code`,`subject_name`,`date`,`time`,`master_id`,`date_milli`) values (8,676,'chemical engineering','semester 3','6667','software engineering','Thu Feb 09 00:00:00 IST 2017','10:0:am',NULL,'1486578600000'),(12,34343,'computer engineering','semester 2','5670','Microprocessor','Mon Feb 20 00:00:00 IST 2017','2:0:pm',NULL,'1487529000000'),(13,234535,'computer engineering','semester 2','3998','embedded system','Wed Feb 22 00:00:00 IST 2017','2:0:pm',NULL,'1487701800000'),(14,34535,'computer engineering','semester 2','1213','Industrial management and safety','Fri Feb 24 00:00:00 IST 2017','3:0:pm',NULL,'1487874600000'),(15,2010,'computer engineering','semester 6','6667','software engineering','Wed Apr 12 00:00:00 IST 2017','1:0:am',NULL,'1491935400000');
 
 /*Table structure for table `tbl_time_table_master` */
 
