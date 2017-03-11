@@ -126,7 +126,7 @@ public class StaffLogin extends javax.swing.JFrame {
                     if (paswd.equals(pwd)) {
 
                         collegeName = rs.getString("college_name");
-                        collegeId = rs.getString("id");
+                        collegeId = rs.getString("college_id");
 
                         StaffHomePage hp = new StaffHomePage();
                         hp.setVisible(true);

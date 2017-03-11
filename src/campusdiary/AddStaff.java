@@ -154,19 +154,24 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         String collegeName = college_names_combo.getSelectedItem() + "";
         String emailId = staff_email_text.getText().trim();
         String password = generatePassword(5);
+        Dbcon db = new Dbcon();
+        String sql1 = "select id from tbl_colleges where name='" + collegeName.trim() + "'";
+        ResultSet rs1 = db.select(sql1);
+        if (rs1.next()) {
+            String college_id = rs1.getString("id");
 
-        String sql = "insert into tbl_login (username, email_id, password , college_name , usertype ) values ('" + staffName + "' , '" + emailId + "' , '" + password + "' , '" + collegeName + "' , 'staff')";
+            String sql = "insert into tbl_login (username, email_id, password , college_name , usertype , college_id) values ('" + staffName + "' , '" + emailId + "' , '" + password + "' , '" + collegeName + "' , 'staff' , '"+college_id+"')";
 
-        int ins = new Dbcon().insert(sql);
-        if (ins > 0) {
-            JOptionPane.showMessageDialog(rootPane, "Successfully added staff");
-            AdminHome ah = new AdminHome();
-            ah.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Try again later");
+            int ins = new Dbcon().insert(sql);
+            if (ins > 0) {
+                JOptionPane.showMessageDialog(rootPane, "Successfully added staff");
+                AdminHome ah = new AdminHome();
+                ah.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Try again later");
+            }
         }
-
     } catch (Exception e) {
         e.printStackTrace();
     }
