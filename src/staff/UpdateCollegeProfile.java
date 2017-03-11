@@ -26,7 +26,7 @@ public UpdateCollegeProfile(String id) {
         this.setLocationRelativeTo(null);
         try {
         Dbcon db=new Dbcon();
-        String sql1="select college_name from tbl_login where id='"+id+"'";
+        String sql1="select college_name from tbl_login where college_id='"+id+"'";
         ResultSet rs1=db.select(sql1);
         System.out.println(sql1);
         if(rs1.next()){
