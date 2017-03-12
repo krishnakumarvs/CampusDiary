@@ -70,9 +70,13 @@ private void viewcollege(){
         back1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         update_button = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        College.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         College.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -95,71 +99,45 @@ private void viewcollege(){
             }
         });
         jScrollPane1.setViewportView(College);
-        if (College.getColumnModel().getColumnCount() > 0) {
-            College.getColumnModel().getColumn(0).setMinWidth(0);
-            College.getColumnModel().getColumn(0).setPreferredWidth(0);
-            College.getColumnModel().getColumn(0).setMaxWidth(0);
-        }
+        College.getColumnModel().getColumn(0).setMinWidth(0);
+        College.getColumnModel().getColumn(0).setPreferredWidth(0);
+        College.getColumnModel().getColumn(0).setMaxWidth(0);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 133, 787, 117));
+
+        delete_button.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         delete_button.setText("DELETE");
         delete_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(delete_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 284, -1, -1));
 
-        back1.setText("Back");
+        back1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        back1.setText("BACK");
         back1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back1ActionPerformed(evt);
             }
         });
+        getContentPane().add(back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 284, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("VIEW COLLEGES");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 44, 287, -1));
 
+        update_button.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         update_button.setText("UPDATE");
         update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(update_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 284, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(back1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(update_button)
-                .addGap(90, 90, 90)
-                .addComponent(delete_button)
-                .addGap(278, 278, 278))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(delete_button)
-                    .addComponent(back1)
-                    .addComponent(update_button))
-                .addGap(72, 72, 72))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,6 +225,7 @@ private void viewcollege(){
     private javax.swing.JButton back1;
     private javax.swing.JButton delete_button;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton update_button;
     // End of variables declaration//GEN-END:variables
