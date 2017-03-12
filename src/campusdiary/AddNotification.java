@@ -118,7 +118,7 @@ public class AddNotification extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 390, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\COMMON.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 490));
 
         pack();

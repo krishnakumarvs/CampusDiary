@@ -70,12 +70,17 @@ public class ViewNotification extends javax.swing.JFrame {
         back1 = new javax.swing.JButton();
         update_button = new javax.swing.JButton();
         delete_button = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("VIEW NOTIFICATIONS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 29, -1, -1));
 
+        notification.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         notification.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -104,63 +109,37 @@ public class ViewNotification extends javax.swing.JFrame {
             notification.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
-        back1.setText("Back");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 75, 748, 205));
+
+        back1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        back1.setText("BACK");
         back1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back1ActionPerformed(evt);
             }
         });
+        getContentPane().add(back1, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 307, -1, -1));
 
+        update_button.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         update_button.setText("UPDATE");
         update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(update_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 307, -1, -1));
 
+        delete_button.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         delete_button.setText("DELETE");
         delete_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(delete_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 307, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
-                .addGap(36, 36, 36))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(back1)
-                        .addGap(39, 39, 39)
-                        .addComponent(update_button)
-                        .addGap(46, 46, 46)
-                        .addComponent(delete_button)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(back1)
-                    .addComponent(update_button)
-                    .addComponent(delete_button))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,6 +227,7 @@ public class ViewNotification extends javax.swing.JFrame {
     private javax.swing.JButton back1;
     private javax.swing.JButton delete_button;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable notification;
     private javax.swing.JButton update_button;

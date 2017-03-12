@@ -51,12 +51,12 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LOGIN.setFont(new java.awt.Font("Algerian", 2, 24));
+        LOGIN.setFont(new java.awt.Font("Algerian", 2, 24)); // NOI18N
         LOGIN.setText("LOGIN");
         LOGIN.setMaximumSize(new java.awt.Dimension(31, 20));
         getContentPane().add(LOGIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 92, 28));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("USERNAME");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 105, 112, 25));
 
@@ -67,12 +67,12 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 105, 236, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("PASSWORD");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 148, -1, 25));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 143, 236, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\start.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\start.jpg")); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 4, 540, 310));
 
         pack();

@@ -225,7 +225,7 @@ public class UpdateTimeTable extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
         jLabel9.setAutoscrolls(true);
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 520, 580));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 520, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

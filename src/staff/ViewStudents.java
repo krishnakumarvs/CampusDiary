@@ -97,23 +97,31 @@ public class ViewStudents extends javax.swing.JFrame {
         viewStudent = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         back2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        updatebutton.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         updatebutton.setText("UPDATE");
         updatebutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatebuttonActionPerformed(evt);
             }
         });
+        getContentPane().add(updatebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 344, -1, -1));
 
+        deletebutton.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         deletebutton.setText("DELETE");
         deletebutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletebuttonActionPerformed(evt);
             }
         });
+        getContentPane().add(deletebutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 344, -1, -1));
 
+        viewStudent.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         viewStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -136,55 +144,29 @@ public class ViewStudents extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(viewStudent);
-        viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
-        viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
-        viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
+        if (viewStudent.getColumnModel().getColumnCount() > 0) {
+            viewStudent.getColumnModel().getColumn(0).setMinWidth(0);
+            viewStudent.getColumnModel().getColumn(0).setPreferredWidth(0);
+            viewStudent.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 56, 847, 262));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("VIEW STUDENT");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 11, 267, 39));
 
+        back2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         back2.setText("BACK");
         back2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back2ActionPerformed(evt);
             }
         });
+        getContentPane().add(back2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 344, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(back2)
-                        .addGap(93, 93, 93)
-                        .addComponent(updatebutton)
-                        .addGap(103, 103, 103)
-                        .addComponent(deletebutton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updatebutton)
-                    .addComponent(deletebutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(back2))
-                .addGap(30, 30, 30))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -271,6 +253,7 @@ private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
     private javax.swing.JButton back2;
     private javax.swing.JButton deletebutton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updatebutton;
     private javax.swing.JTable viewStudent;

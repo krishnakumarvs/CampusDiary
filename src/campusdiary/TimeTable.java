@@ -153,13 +153,14 @@ public class TimeTable extends javax.swing.JFrame {
         });
         getContentPane().add(sub, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 307, 210, 28));
 
-        jButton2.setText("Submit");
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jButton2.setText("SUBMIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 439, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, -1, -1));
 
         hour.setModel(new javax.swing.SpinnerNumberModel(1, 0, 12, 1));
         getContentPane().add(hour, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 269, 48, -1));
@@ -190,13 +191,14 @@ public class TimeTable extends javax.swing.JFrame {
         });
         getContentPane().add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 235, 210, -1));
 
+        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton4.setText("BACK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 439, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Revision Code");
@@ -210,7 +212,7 @@ public class TimeTable extends javax.swing.JFrame {
         });
         getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 151, 210, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\COMMON.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
         jLabel5.setText(" ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 530));
 

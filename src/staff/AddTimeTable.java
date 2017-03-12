@@ -183,7 +183,7 @@ public class AddTimeTable extends javax.swing.JFrame {
         getContentPane().add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 204, 190, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 500));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

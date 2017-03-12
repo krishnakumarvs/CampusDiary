@@ -105,9 +105,11 @@ public class ViewNotification extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(notification);
-        notification.getColumnModel().getColumn(0).setMinWidth(0);
-        notification.getColumnModel().getColumn(0).setPreferredWidth(0);
-        notification.getColumnModel().getColumn(0).setMaxWidth(0);
+        if (notification.getColumnModel().getColumnCount() > 0) {
+            notification.getColumnModel().getColumn(0).setMinWidth(0);
+            notification.getColumnModel().getColumn(0).setPreferredWidth(0);
+            notification.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 75, 748, 94));
 
@@ -138,7 +140,7 @@ public class ViewNotification extends javax.swing.JFrame {
         });
         getContentPane().add(delete_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 247, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\staff.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 350));
 
         pack();

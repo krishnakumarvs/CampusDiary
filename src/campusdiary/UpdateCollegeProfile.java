@@ -88,8 +88,8 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 544, -1, -1));
-        getContentPane().add(selectedOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 312, 164, 205));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, -1, -1));
+        getContentPane().add(selectedOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 164, 205));
 
         jButton2.setText("+");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -97,14 +97,14 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 313, -1, 31));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, 31));
 
         allBranches.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 allBranchesActionPerformed(evt);
             }
         });
-        getContentPane().add(allBranches, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 312, 164, 198));
+        getContentPane().add(allBranches, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 164, 198));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("UPDATE  COLLEGE");
@@ -116,11 +116,11 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 362, -1, 31));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, 31));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 117, 48, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 48, -1));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton4.setText("BACK");
@@ -129,38 +129,38 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 544, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, -1, -1));
 
         college.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 collegeActionPerformed(evt);
             }
         });
-        getContentPane().add(college, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 117, 264, -1));
+        getContentPane().add(college, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 264, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Allocating Branches");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 312, 129, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 129, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Location");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 188, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         location.setColumns(20);
         location.setRows(5);
         jScrollPane1.setViewportView(location);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 161, 264, 121));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 264, 121));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Id");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 64, 24, 23));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 24, 23));
 
         collid.setEditable(false);
-        getContentPane().add(collid, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 66, 264, -1));
+        getContentPane().add(collid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 264, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\COMMON.png")); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 580));
+        jLabel6.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

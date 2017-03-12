@@ -117,9 +117,11 @@ public class ViewFeedBack extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(feedback);
-        feedback.getColumnModel().getColumn(0).setMinWidth(0);
-        feedback.getColumnModel().getColumn(0).setPreferredWidth(0);
-        feedback.getColumnModel().getColumn(0).setMaxWidth(0);
+        if (feedback.getColumnModel().getColumnCount() > 0) {
+            feedback.getColumnModel().getColumn(0).setMinWidth(0);
+            feedback.getColumnModel().getColumn(0).setPreferredWidth(0);
+            feedback.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 149, 646, 139));
 
@@ -127,7 +129,7 @@ public class ViewFeedBack extends javax.swing.JFrame {
         jLabel1.setText("FEED BACK");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 43, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\staff.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 520));
 
         pack();

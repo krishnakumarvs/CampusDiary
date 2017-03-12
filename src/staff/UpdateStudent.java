@@ -208,7 +208,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 submitActionPerformed(evt);
             }
         });
-        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 519, 76, 32));
+        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, 80, 32));
 
         buttonGroup1.add(yes);
         yes.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -218,7 +218,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 yesActionPerformed(evt);
             }
         });
-        getContentPane().add(yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 441, 166, -1));
+        getContentPane().add(yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 441, 90, -1));
 
         buttonGroup1.add(no);
         no.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -270,7 +270,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(636, 519, 74, 32));
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, 74, 32));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Branch");
@@ -321,7 +321,7 @@ public class UpdateStudent extends javax.swing.JFrame {
         getContentPane().add(semester_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 437, 215, 30));
 
         jLabel12.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 640));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
