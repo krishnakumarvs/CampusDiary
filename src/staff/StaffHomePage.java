@@ -42,6 +42,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         student = new javax.swing.JMenuItem();
@@ -70,9 +71,15 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuItem12.setText("jMenuItem12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 400, 300));
 
         jMenu1.setText("Add");
 
+        student.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         student.setText("Student");
         student.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +88,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu1.add(student);
 
+        notification.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         notification.setText("Notification");
         notification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +97,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu1.add(notification);
 
+        stimetable.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         stimetable.setText("Series Time Table");
         stimetable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +106,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu1.add(stimetable);
 
+        feedback.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         feedback.setText("Feed Back");
         feedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +119,7 @@ public class StaffHomePage extends javax.swing.JFrame {
 
         jMenu5.setText("View");
 
+        jMenuItem9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem9.setText("Other College News");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +128,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem9);
 
+        jMenuItem10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem10.setText("Time Table");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +137,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem10);
 
+        jMenuItem11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem11.setText("Feed Back");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +146,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem11);
 
+        jMenuItem13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem13.setText("Student Details");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +155,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem13);
 
+        jMenuItem14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem14.setText("Sylabus");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +164,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem14);
 
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem1.setText("CollegesProfile");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +173,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem1);
 
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jMenuItem3.setText("Notifications");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,17 +197,6 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,6 +320,7 @@ private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem feedback;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
