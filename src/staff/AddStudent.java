@@ -335,7 +335,7 @@ public class AddStudent extends javax.swing.JFrame {
                     imageName = "";
                 }
             }
-            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id,photo)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '" + StaffLogin.collegeId + "','" + imageName + "');";
+            String sql = "insert into tbl_student(name,address,dob,gender,guardian_name,phone_no,email,password,branch,admission_date,dob_milli,admdate_milli,semester,college, college_id,photo,status)values('" + na + "','" + ad + "','" + ag + "','" + gen + "','" + gur + "','" + ph + "','" + em + "','" + ps + "','" + br + "','" + add + "','" + milli_dob + "','" + milli_adm + "', '" + semester + "', '" + collegeName + "' , '" + StaffLogin.collegeId + "','" + imageName + "','1');";
 
             System.out.println(sql);
 

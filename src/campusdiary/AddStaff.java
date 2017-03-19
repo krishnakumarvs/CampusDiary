@@ -75,13 +75,13 @@ public class AddStaff extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Staff Name");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 60, 116, 27));
-        getContentPane().add(staff_name_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 59, 183, 30));
+        getContentPane().add(staff_name_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 59, 260, 30));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Colege Name");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 107, 116, 27));
 
-        getContentPane().add(college_names_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 107, 183, 30));
+        getContentPane().add(college_names_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 107, 260, 30));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setText("ADD STAFF");
@@ -95,7 +95,7 @@ public class AddStaff extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Staff Email");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 156, 116, 27));
-        getContentPane().add(staff_email_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 155, 183, 30));
+        getContentPane().add(staff_email_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 155, 260, 30));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton4.setText("BACK");
@@ -107,7 +107,7 @@ public class AddStaff extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 204, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 240));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

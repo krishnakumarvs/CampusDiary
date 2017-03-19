@@ -30,7 +30,7 @@ public class ViewFeedBack extends javax.swing.JFrame {
         try {
             delete_button.setEnabled(false);
             Dbcon db=new Dbcon();
-            String sql="select * from tbl_feedback";
+            String sql="select * from tbl_feedback where owner='STAFF'";
             ResultSet rs=db.select(sql);
             System.out.println(sql);
             model=(DefaultTableModel)feedback.getModel();

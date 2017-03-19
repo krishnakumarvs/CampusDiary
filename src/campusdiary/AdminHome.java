@@ -37,7 +37,7 @@ public class AdminHome extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<String>();
+        jList1 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -60,10 +60,10 @@ public class AdminHome extends javax.swing.JFrame {
         logout = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -71,7 +71,7 @@ public class AdminHome extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kakes\\Documents\\NetBeansProjects\\poli\\CampusDiary\\img\\start.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\start.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -20, 410, 310));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 400, 310));
 
@@ -79,7 +79,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         add.setText("Add");
 
-        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem1.setText("Branches");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem1);
 
-        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem2.setText("Colleges");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +97,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem2);
 
-        jMenuItem14.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem14.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem14.setText("Staff");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem14);
 
-        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem3.setText("Notification");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +115,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem3);
 
-        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem4.setText(" Subjects");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem4);
 
-        jMenuItem12.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem12.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem12.setText("Sylabus");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         add.add(jMenuItem12);
 
-        jMenuItem13.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem13.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem13.setText("TimeTable");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +146,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         view.setText("View");
 
-        jMenuItem5.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem5.setText("Branches");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem5);
 
-        jMenuItem6.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem6.setText("Colleges");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +164,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem6);
 
-        jMenuItem7.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem7.setText("FeedBack");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +173,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem7);
 
-        jMenuItem8.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem8.setText("Notifications");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +182,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem8);
 
-        jMenuItem9.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem9.setText("Subjects");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,8 +191,8 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem9);
 
-        jMenuItem10.setFont(new java.awt.Font("Times New Roman", 1, 12));
-        jMenuItem10.setText("Sylabus");
+        jMenuItem10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jMenuItem10.setText("Syllabus");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -200,7 +200,7 @@ public class AdminHome extends javax.swing.JFrame {
         });
         view.add(jMenuItem10);
 
-        jMenuItem11.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem11.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem11.setText("TimeTable");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +213,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         logout.setText("Logout");
 
-        jMenuItem15.setFont(new java.awt.Font("Times New Roman", 1, 12));
+        jMenuItem15.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMenuItem15.setText("Logout");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

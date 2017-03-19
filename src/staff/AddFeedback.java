@@ -125,7 +125,7 @@ public class AddFeedback extends javax.swing.JFrame {
         }
         else
         {
-        String sql = "insert into tbl_feedback(owner,audience,title,date,description,college_id)values('STAFF','ADMIN','"+tt+"','"+temp+"','"+note+"','101');";
+        String sql = "insert into tbl_feedback(owner,audience,title,date,description,college_id)values('STAFF','ADMIN','"+tt+"','"+temp+"','"+note+"','"+StaffLogin.collegeId+"');";
         System.out.println(sql);
         
         int ins = d.insert(sql);

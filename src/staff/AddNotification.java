@@ -133,7 +133,7 @@ public class AddNotification extends javax.swing.JFrame {
          }
          else
          {
-        String sql="insert into tbl_notifications(owner,audience,title,date,description,college_id)values('STAFF','"+au+"','"+tit+"','"+temp+"','"+des+"','101');";
+        String sql="insert into tbl_notifications(owner,audience,title,date,description,college_id)values('STAFF','"+au+"','"+tit+"','"+temp+"','"+des+"','"+StaffLogin.collegeId+"');";
         
         int ins = d.insert(sql);
         if(ins>0) {

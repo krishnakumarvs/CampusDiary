@@ -23,6 +23,7 @@ public class UpdateCollegeProfile extends javax.swing.JFrame {
     }
     public UpdateCollegeProfile(String id) {
         initComponents();
+        this.setLocationRelativeTo(null);
         try {
              Dbcon db=new Dbcon();
             
