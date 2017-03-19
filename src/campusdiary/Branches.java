@@ -6,6 +6,8 @@
 package campusdiary;
 
 import db.Dbcon;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,10 +23,12 @@ public class Branches extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-     private void clearText(){
+
+    private void clearText() {
         branchname.setText("");
-       
-        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,21 +83,32 @@ public class Branches extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String br = branchname.getText();
-        if(br.equals("")){
-            
+        if (br.equals("")) {
+
             JOptionPane.showMessageDialog(this, "please enter a value");
-        }else{
-        Dbcon db = new Dbcon();
-     String sql = "insert into tbl_branches(branches)values('"+br+"');";
-           int ins= db.insert(sql);
-           if(ins>0){
-               JOptionPane.showMessageDialog(this, "successfully inserted");
-           }else{
-               JOptionPane.showMessageDialog(this, "try again");
-           }
-    clearText();
+        } else {
+            try {
+                Dbcon db = new Dbcon();
+                String sql2 = "select * from tbl_branches where branches='" + br + "'";
+                ResultSet rs2 = db.select(sql2);
+                if (rs2.next()) {
+                    JOptionPane.showMessageDialog(this, "already exits");
+                } else {
+
+                    String sql = "insert into tbl_branches(branches)values('" + br + "');";
+                    int ins = db.insert(sql);
+                    if (ins > 0) {
+                        JOptionPane.showMessageDialog(this, "successfully inserted");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "try again");
+                    }
+                    clearText();
+                }
+            } catch (SQLException e) {
+                System.out.println("error due to sql exception");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -103,7 +118,7 @@ public class Branches extends javax.swing.JFrame {
         new AdminHome().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */

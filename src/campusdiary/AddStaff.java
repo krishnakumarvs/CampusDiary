@@ -120,6 +120,11 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         String emailId = staff_email_text.getText().trim();
         String password = generatePassword(5);
         Dbcon db = new Dbcon();
+        String sql3="select username from tbl_login where college_name='"+collegeName+"'";
+        ResultSet rs2=db.select(sql3);
+        if(rs2.next()){
+         JOptionPane.showMessageDialog(rootPane, "login for college already exits");
+        }else{
         String sql1 = "select id from tbl_colleges where name='" + collegeName.trim() + "'";
         ResultSet rs1 = db.select(sql1);
         if (rs1.next()) {
@@ -129,13 +134,14 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
             int ins = new Dbcon().insert(sql);
             if (ins > 0) {
-                JOptionPane.showMessageDialog(rootPane, "Successfully added staff");
+                JOptionPane.showMessageDialog(this, "Successfully added staff");
                 AdminHome ah = new AdminHome();
                 ah.setVisible(true);
                 this.dispose();
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Try again later");
+                JOptionPane.showMessageDialog(this, "Try again later");
             }
+        }
         }
     } catch (Exception e) {
         e.printStackTrace();

@@ -11,6 +11,8 @@
 package campusdiary;
 
 import db.Dbcon;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -103,15 +105,24 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     if(name.equals("")||code.equals("")){
         JOptionPane.showMessageDialog(this, "enter the values");
     }else{
-    
-    Dbcon db = new Dbcon();
-     String sql = "insert into tbl_subjects(subject_name,subject_code)values('"+name+ "','"+code+"');";
+        try {
+            Dbcon db = new Dbcon();
+        String sql2="select * from tbl_subjects where subject_code='"+code+"'";
+        ResultSet rs2=db.select(sql2);
+        if(rs2.next()){
+            JOptionPane.showMessageDialog(this, "already exists");
+        }else{
+        String sql = "insert into tbl_subjects(subject_name,subject_code)values('"+name+ "','"+code+"');";
            int ins= db.insert(sql);
            if(ins>0){
                JOptionPane.showMessageDialog(this, "successfully inserted");
            }else{
                JOptionPane.showMessageDialog(this, "try again");
            }
+        }
+        } catch (SQLException e) {
+            System.out.println("failed due to sql exception");
+        }
     }
 clearText();    // TODO add your handling code here:
 }//GEN-LAST:event_jButton1ActionPerformed

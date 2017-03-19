@@ -33,7 +33,7 @@ public class ViewNotification extends javax.swing.JFrame {
              Dbcon db =new Dbcon();
              model=(DefaultTableModel)notification.getModel();
              String array[]=new String[7];
-             String sql="select * from tbl_notifications where college_id='"+StaffLogin.collegeId+"' OR audience='All' OR audience='staff only'";
+             String sql="select * from tbl_notifications where college_id='"+StaffLogin.collegeId+"' AND (audience='All' OR audience='staff only')";
              ResultSet rs=db.select(sql);
              System.out.println(sql);
              while(rs.next()){
