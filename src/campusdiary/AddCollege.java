@@ -32,10 +32,11 @@ public class AddCollege extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         loadBranches();
     }
-      private void clearText(){
+
+    private void clearText() {
         college.setText("");
         location.setText("");
-        }
+    }
 
     private void loadBranches() {
         Dbcon db = new Dbcon();
@@ -171,13 +172,24 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         JOptionPane.showMessageDialog(this, "enter the values");
     } else {
 
-        Dbcon db = new Dbcon();
-        String sql = "insert into tbl_colleges(name,location,branches,password)values('" + name + "','" + location1 + "','" + branches + "','" + pass + "');";
-        int ins = db.insert(sql);
-        if (ins > 0) {
-            JOptionPane.showMessageDialog(this, "successfully inserted");
-        } else {
-            JOptionPane.showMessageDialog(this, "try again");
+        
+        try {
+            Dbcon db = new Dbcon();
+            String sql3 = "select * from tbl_colleges where name='" + name + "'";
+            ResultSet rs3 = db.select(sql3);
+            if (rs3.next()) {
+                JOptionPane.showMessageDialog(this, "college already exits");
+            } else {
+                String sql = "insert into tbl_colleges(name,location,branches,password)values('" + name + "','" + location1 + "','" + branches + "','" + pass + "');";
+                int ins = db.insert(sql);
+                if (ins > 0) {
+                    JOptionPane.showMessageDialog(this, "successfully inserted");
+                } else {
+                    JOptionPane.showMessageDialog(this, "try again");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("error due to sql exception");
         }
     }
     clearText();
@@ -234,9 +246,9 @@ private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-         AdminHome ah = new AdminHome();
+        AdminHome ah = new AdminHome();
         ah.setVisible(true);
-        this.dispose(); 
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
