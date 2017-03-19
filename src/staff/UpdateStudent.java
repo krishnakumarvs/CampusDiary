@@ -147,7 +147,8 @@ public class UpdateStudent extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         semester_combo = new javax.swing.JComboBox();
-        jLabel12 = new javax.swing.JLabel();
+        status = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         jTextField3.setText("jTextField1");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +209,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 submitActionPerformed(evt);
             }
         });
-        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, 80, 32));
+        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 80, 32));
 
         buttonGroup1.add(yes);
         yes.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -270,7 +271,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 backActionPerformed(evt);
             }
         });
-        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, 74, 32));
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 74, 32));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Branch");
@@ -320,8 +321,17 @@ public class UpdateStudent extends javax.swing.JFrame {
         semester_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "semester 1", "semester 2", "semester 3", "semester 4", "semester 5", "semester 6" }));
         getContentPane().add(semester_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 437, 215, 30));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 670));
+        status.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        status.setText("StudentStatus");
+        status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, 170, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 10, 960, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -454,6 +464,23 @@ public class UpdateStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
+        String status="0";
+        String an = admission.getText();
+                Dbcon db = new Dbcon();
+        String sql = "update tbl_student set status='"+status+"' where id='"+an+"'";
+        System.out.println(sql);
+
+        int ins = db.insert(sql);
+        if (ins > 0) {
+            JOptionPane.showMessageDialog(rootPane, "Success");
+            
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Could not insert");
+        }
+
+    }//GEN-LAST:event_statusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -503,7 +530,7 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -520,6 +547,7 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JTextField phone;
     private javax.swing.JLabel photo_label;
     private javax.swing.JComboBox semester_combo;
+    private javax.swing.JButton status;
     private javax.swing.JButton submit;
     private javax.swing.JRadioButton yes;
     // End of variables declaration//GEN-END:variables

@@ -25,10 +25,18 @@ public class ViewStudents extends javax.swing.JFrame {
 
     DefaultTableModel mode1 = null;
     String id;
+    String collegeid;
 
     /** Creates new form ViewStudents */
-    public ViewStudents() {
+    public ViewStudents(String id) {
         initComponents();
+        collegeid=id;
+         this.setLocationRelativeTo(null);
+        viewstudent();
+    }
+     public ViewStudents() {
+        initComponents();
+        collegeid=id;
          this.setLocationRelativeTo(null);
         viewstudent();
     }
@@ -38,7 +46,8 @@ public class ViewStudents extends javax.swing.JFrame {
             updatebutton.setEnabled(false);
             deletebutton.setEnabled(false);
             Dbcon db = new Dbcon();
-            String sql = "select *from tbl_student";
+            String sql = "select * from tbl_student where college_id='"+StaffLogin.collegeId+"' AND status='1'";
+            System.out.println(sql);
             ResultSet rs = db.select(sql);
             mode1 = (DefaultTableModel) viewStudent.getModel();
             String arr[] = new String[12];
@@ -166,7 +175,7 @@ public class ViewStudents extends javax.swing.JFrame {
         getContentPane().add(back2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 344, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 400));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,7 +192,7 @@ String sql="delete from tbl_student where id='"+id+"'";
 int r=db.insert(sql);
 if(r>0){
      JOptionPane.showMessageDialog(this,"successfully deleted");
-     ViewStudents student=new ViewStudents();
+     ViewStudents student=new ViewStudents(collegeid);
      student.setVisible(true);
      this.dispose();
 }else{
@@ -244,6 +253,7 @@ private void back2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:e
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            
             public void run() {
                 new ViewStudents().setVisible(true);
             }

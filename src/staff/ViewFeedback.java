@@ -34,7 +34,7 @@ public class ViewFeedback extends javax.swing.JFrame {
             Dbcon db=new Dbcon();
             model=(DefaultTableModel)feedback.getModel();
             String array[]=new String[7];
-            String sql="select * from tbl_feedback";
+            String sql="select * from tbl_feedback where college_id='"+StaffLogin.collegeId+"'";
             System.out.println(sql);
             ResultSet rs=db.select(sql);
             while(rs.next()){

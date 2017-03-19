@@ -33,7 +33,7 @@ public class ViewNotification extends javax.swing.JFrame {
              Dbcon db =new Dbcon();
              model=(DefaultTableModel)notification.getModel();
              String array[]=new String[7];
-             String sql="select * from tbl_notifications";
+             String sql="select * from tbl_notifications where college_id='"+StaffLogin.collegeId+"' OR audience='All' OR audience='staff only'";
              ResultSet rs=db.select(sql);
              System.out.println(sql);
              while(rs.next()){
@@ -139,7 +139,7 @@ public class ViewNotification extends javax.swing.JFrame {
         getContentPane().add(delete_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 307, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("F:\\CampusDiary\\img\\staff.png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 350));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

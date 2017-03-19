@@ -36,7 +36,7 @@ private void viewtimetable(){
     updateButton.setEnabled(false);
     deleteButton.setEnabled(false);
      Dbcon db = new Dbcon();
-            String sql = "select *from tbl_series_time_table";
+            String sql = "select *from tbl_series_time_table where college_id='"+StaffLogin.collegeId+"'";
             ResultSet rs = db.select(sql);
             mode1 = (DefaultTableModel) viewTimeTable.getModel();
             String arr[] = new String[8];

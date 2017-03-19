@@ -103,7 +103,7 @@ public class StaffLogin extends javax.swing.JFrame {
                         collegeName = rs.getString("college_name");
                         collegeId = rs.getString("college_id");
 
-                        StaffHomePage hp = new StaffHomePage();
+                        StaffHomePage hp = new StaffHomePage(collegeId);
                         hp.setVisible(true);
                         this.dispose();
 

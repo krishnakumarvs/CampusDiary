@@ -24,7 +24,7 @@ public class StaffHomePage extends javax.swing.JFrame {
     public StaffHomePage(String username) {
 
         initComponents();
-
+    this.setLocationRelativeTo(null);
     }
 
     /**
@@ -42,6 +42,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -57,6 +58,8 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -69,6 +72,8 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenuItem8.setText("jMenuItem8");
 
         jMenuItem12.setText("jMenuItem12");
+
+        jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -129,7 +134,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenu5.add(jMenuItem9);
 
         jMenuItem10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem10.setText("Time Table");
+        jMenuItem10.setText("Series Time Table");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -156,7 +161,7 @@ public class StaffHomePage extends javax.swing.JFrame {
         jMenu5.add(jMenuItem13);
 
         jMenuItem14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jMenuItem14.setText("Sylabus");
+        jMenuItem14.setText("Syllabus");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem14ActionPerformed(evt);
@@ -181,6 +186,24 @@ public class StaffHomePage extends javax.swing.JFrame {
             }
         });
         jMenu5.add(jMenuItem3);
+
+        jMenuItem5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenuItem5.setText("MainTimeTable");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
+        jMenuItem7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenuItem7.setText("OldStudents");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem7);
 
         jMenuBar1.add(jMenu5);
 
@@ -282,6 +305,22 @@ private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     // TODO add your handling code here:
 }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        
+            ViewMainTimeTable timetable=new ViewMainTimeTable();
+            timetable.setVisible(true);
+            this.dispose();
+
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        
+            ViewOldStudents stud=new ViewOldStudents();
+            stud.setVisible(true);
+            this.dispose();
+
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,6 +375,9 @@ private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu jPopupMenu1;
